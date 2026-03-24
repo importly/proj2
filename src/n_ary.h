@@ -1,29 +1,24 @@
-//
-// Created by aryan on 3/12/2026.
-//
-
 #ifndef PROJ2_N_ARY_H
 #define PROJ2_N_ARY_H
 
 #include <iostream>
 #include <vector>
 
+
 class n_ary {
     class Node {
+    public:
         std::string value;
         std::vector<Node*> children;
-    public:
-        Node(std::string val): value(val) {};
     };
 
     Node* head;
 
 public:
     n_ary();
-    Node* search(Node* currentNode);
+    Node* searchLevel(Node* currentNode, std::string key);
     void insert();
 
 };
-
 
 #endif //PROJ2_N_ARY_H
