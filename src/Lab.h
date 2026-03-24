@@ -4,6 +4,9 @@
 
 #ifndef PROJ2_LAB_H
 #define PROJ2_LAB_H
+#define FNV_OFFSET_BASIS 14695981039346656037
+#define FNV_PRIME 1099511628211
+#include <cstdint>
 #include <string>
 
 
@@ -12,28 +15,38 @@ class Lab {
     std::string department;
     std::string topic;
     std::string level;
+    std::string search_string;
 
+    std::string name;
     std::string contact_info;
     std::string synopsis;
 
 public:
 
-    Lab(const std::string &college, const std::string &department, const std::string &topic, const std::string &level,
+    Lab(const std::string &college, const std::string &department, const std::string &topic, const std::string &level, const std::string &name,
     const std::string &contact_info, const std::string &synopsis);
 
     std::string get_search_string() const;
 
-    std::string get_college();
+    std::string get_college() const;
 
-    std::string get_department();
+    std::string get_department() const;
 
-    std::string get_topic();
+    std::string get_topic() const;
 
-    std::string get_level();
+    std::string get_level() const;
 
-    std::string get_contact_info();
+    std::string get_contact_info() const;
 
-    std::string get_synopsis();
+    std::string get_synopsis() const;
+
+    std::string get_name() const;
+
+    uint64_t hash() const;
+
+private:
+    // FNV-1a hash algorithm, got from edugator reference material (https://edugator.app/courses/b471fb90-c706-4a6c-9f09-8fbdee880e2a/lesson/acf30a19-a54b-42f8-b282-3a95a5a6a554)
+    static uint64_t fnv1a(const std::string& key);
 };
 
 
