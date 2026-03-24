@@ -8,22 +8,23 @@
 #include <iostream>
 #include <vector>
 
+#include "Lab.h"
 class n_ary {
     class Node {
+    public:
         std::string value;
         std::vector<Node*> children;
-    public:
-        Node(std::string val): value(val) {};
     };
 
     Node* head;
 
 public:
     n_ary();
-    Node* search(Node* currentNode);
-    void insert();
+    Node* search(Node* currentNode, std::string key);
+    void insert(std::vector<Lab *> dataVector);
 
 };
+
 
 
 #endif //PROJ2_N_ARY_H
