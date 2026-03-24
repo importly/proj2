@@ -1,8 +1,16 @@
-//
-// Created by aryan on 3/12/2026.
-//
 #include "n_ary.h"
 
+void n_ary::insert(std::vector<Lab *> dataVector)
+{
+    for(int i = 0; i < dataVector.size(); i++)
+    {
+        if(!searchLevel(head , dataVector[i]->get_college()))
+        {
+            Node *college = new n_ary::Node();
+            head->children.push_back(college);
+        }
+    }
+}
 
 n_ary::Node* n_ary::searchLevel(Node* currentNode, std::string key) {
     if (currentNode->children.empty()) {
