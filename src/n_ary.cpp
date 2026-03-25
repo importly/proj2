@@ -70,13 +70,17 @@ void n_ary::insert(std::vector<Lab *> dataVector)
     }
 }
 
+//searches through the children of the current node for the key (ex if you are looking for the department,
+//will search the children of the college for the department and return it if found, else will return nullptr
 n_ary::Node* n_ary::searchLevel(Node* currentNode, std::string key) {
     if (currentNode->children.empty()) {
         return nullptr;
     }
 
-    for (currentNode->children) {
-
+    for (int i = 0; i < currentNode->children.size(); i++) {
+        if (currentNode->children[i]->value == key) {
+            return currentNode->children[i];
+        }
     }
 
     return nullptr;
