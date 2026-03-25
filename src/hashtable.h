@@ -36,7 +36,7 @@ class hashtable {
         return true;
     }
 
-    bool delete
+    //bool delete
 
 
 };
