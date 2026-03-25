@@ -1,5 +1,7 @@
 #include "n_ary.h"
 
+#include <ranges>
+
 void n_ary::insert(std::vector<Lab *> dataVector)
 {
     //looping over the 100000 data points to create the n-ary tree
@@ -99,13 +101,17 @@ n_ary::Node* n_ary::searchLevel(Node* currentNode, std::string key) {
     return nullptr;
 }
 
-void n_ary::functionality(std::vector<std::string> userInput) {
+std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::string>& userInput) {
 
     Node* temp = head;
     for (int i = 0; i < userInput.size(); i++) {
         temp = searchLevel(temp, userInput[0]);
     }
 
+    for (int i = 0; i < temp->children.size(); i++) {
+        allInfo.push_back(temp->children[i]->researchInfo);
+    }
 
+    return allInfo;
 }
 
