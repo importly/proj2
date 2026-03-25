@@ -47,7 +47,15 @@ void n_ary::insert(std::vector<Lab *> dataVector)
             level->value = levelName;
             topic->children.push_back(level);
         }
+        Node* info = new n_ary::Node();
 
+        info->researchInfo.push_back(nameName);
+        info->researchInfo.push_back(contactInfoName);
+        info->researchInfo.push_back(synopsisName);
+        level->children.push_back(info);
+
+
+        /*
         Node* name = searchLevel(level, nameName);
         if(name == nullptr)
         {
@@ -71,6 +79,7 @@ void n_ary::insert(std::vector<Lab *> dataVector)
             synopsis->value = synopsisName;
             name->children.push_back(synopsis);
         }
+        */
     }
 }
 
@@ -89,3 +98,5 @@ n_ary::Node* n_ary::searchLevel(Node* currentNode, std::string key) {
 
     return nullptr;
 }
+
+
