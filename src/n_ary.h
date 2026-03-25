@@ -8,6 +8,7 @@
 class n_ary {
     class Node {
     public:
+        std::vector<std::string> researchInfo = {};
         std::string value;
         std::vector<Node*> children;
     };
