@@ -89,3 +89,14 @@ n_ary::Node* n_ary::searchLevel(Node* currentNode, std::string key) {
 
     return nullptr;
 }
+
+void n_ary::functionality(std::vector<std::string> userInput) {
+
+    Node* temp = head;
+    for (int i = 0; i < userInput.size(); i++) {
+        temp = searchLevel(temp, userInput[0]);
+    }
+
+
+}
+

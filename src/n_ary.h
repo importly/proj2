@@ -14,11 +14,13 @@ class n_ary {
 
     Node* head;
 
+
 public:
     n_ary();
 
     Node* searchLevel(Node* currentNode, std::string key);
     void insert(std::vector<Lab *> dataVector);
+    void functionality(std::vector<std::string> userInput);
 
 };
 
