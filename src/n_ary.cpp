@@ -2,8 +2,10 @@
 
 void n_ary::insert(std::vector<Lab *> dataVector)
 {
+    //looping over the 100000 data points to create the n-ary tree
     for(int i = 0; i < dataVector.size(); i++)
     {
+        //storing all the names of the items in the tree
         std::string collegeName = dataVector[i]->get_college();
         std::string departmentName = dataVector[i]->get_department();
         std::string topicName = dataVector[i]->get_topic();
@@ -12,7 +14,9 @@ void n_ary::insert(std::vector<Lab *> dataVector)
         std::string contactInfoName = dataVector[i]->get_contact_info();
         std::string synopsisName = dataVector[i]->get_synopsis();
 
+        //calling search to see if the college exists and if it doesn't then it will be nullptr
         Node* college = searchLevel(head, collegeName);
+        //if college is nullptr then create a new node and insert it as the head's children
         if(college == nullptr)
         {
             college = new n_ary::Node();
