@@ -101,11 +101,15 @@ n_ary::Node* n_ary::searchLevel(Node* currentNode, std::string key) {
     return nullptr;
 }
 
+//tries to find the research opportunities, if foudn returns a vector containing all the vectors of info.
+//if not found returns an empty vector.
 std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::string>& userInput) {
-
     Node* temp = head;
     for (int i = 0; i < userInput.size(); i++) {
         temp = searchLevel(temp, userInput[0]);
+        if (temp == nullptr) {
+            return {};
+        }
     }
 
     for (int i = 0; i < temp->children.size(); i++) {
@@ -114,4 +118,3 @@ std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::stri
 
     return allInfo;
 }
-
