@@ -44,6 +44,8 @@ public:
 
     uint64_t hash() const;
 
+    static uint64_t string_hash(std::string key) ;
+
 private:
     // FNV-1a hash algorithm, got from edugator reference material (https://edugator.app/courses/b471fb90-c706-4a6c-9f09-8fbdee880e2a/lesson/acf30a19-a54b-42f8-b282-3a95a5a6a554)
     static uint64_t fnv1a(const std::string& key);

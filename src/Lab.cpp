@@ -52,6 +52,10 @@ uint64_t Lab::hash() const {
     return fnv1a(get_search_string());
 }
 
+uint64_t Lab::string_hash(std::string key) {
+    return fnv1a(key);
+}
+
 uint64_t Lab::fnv1a(const std::string &key) {
     uint64_t hash = FNV_OFFSET_BASIS;
     for (char c : key) {
