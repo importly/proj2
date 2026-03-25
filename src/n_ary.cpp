@@ -4,10 +4,68 @@ void n_ary::insert(std::vector<Lab *> dataVector)
 {
     for(int i = 0; i < dataVector.size(); i++)
     {
-        if(!searchLevel(head , dataVector[i]->get_college()))
+        std::string collegeName = dataVector[i]->get_college();
+        std::string departmentName = dataVector[i]->get_department();
+        std::string topicName = dataVector[i]->get_topic();
+        std::string levelName = dataVector[i]->get_level();
+        std::string nameName = dataVector[i]->get_name();
+        std::string contactInfoName = dataVector[i]->get_contact_info();
+        std::string synopsisName = dataVector[i]->get_synopsis();
+
+        Node* college = searchLevel(head, collegeName);
+        if(college == nullptr)
         {
-            Node *college = new n_ary::Node();
+            college = new n_ary::Node();
+            college->value = collegeName;
             head->children.push_back(college);
+        }
+
+        Node* department = searchLevel(college, departmentName);
+        if(department == nullptr)
+        {
+            department = new n_ary::Node();
+            department->value = departmentName;
+            college->children.push_back(department);
+        }
+
+        Node* topic = searchLevel(department, topicName);
+        if(topic == nullptr)
+        {
+            topic = new n_ary::Node();
+            topic->value = topicName;
+            department->children.push_back(topic);
+        }
+
+        Node* level = searchLevel(topic, levelName);
+        if(level == nullptr)
+        {
+            level = new n_ary::Node();
+            level->value = levelName;
+            topic->children.push_back(level);
+        }
+
+        Node* name = searchLevel(level, nameName);
+        if(name == nullptr)
+        {
+            name = new n_ary::Node();
+            name->value = nameName;
+            level->children.push_back(name);
+        }
+
+        Node* contactInfo = searchLevel(name, contactInfoName);
+        if(contactInfo == nullptr)
+        {
+            contactInfo = new n_ary::Node();
+            contactInfo->value = contactInfoName;
+            name->children.push_back(contactInfo);
+        }
+
+        Node* synopsis = searchLevel(contactInfo, synopsisName);
+        if(synopsis == nullptr)
+        {
+            synopsis = new n_ary::Node();
+            synopsis->value = synopsisName;
+            name->children.push_back(synopsis);
         }
     }
 }
