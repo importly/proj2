@@ -27,8 +27,8 @@ void generate()
 
     std::vector<std::string> synopsis = {"This lab explores the application of ", "Focused on investigating methods to improve ", "Researching high performance applications in ", "Developing innovative approaches in ", "Analyzing challenges in "};
 
-    std::ofstream outputFile("researchData.csv");
-    std::ifstream inputFile("customers-100000.csv");
+    std::ofstream outputFile("../src/researchData.csv");
+    std::ifstream inputFile("../src/customers-100000.csv");
     std::string line;
 
     if (!outputFile.is_open()) {
