@@ -48,7 +48,10 @@ void generate()
     std::mt19937 gen1(rd1());
     std::uniform_int_distribution<> dist1(0, 3);
 
+    int counter = 0;
     while (std::getline(inputFile, line)) {
+
+        ++counter;
         std::stringstream ss(line);
 
         std::string temp;
@@ -115,8 +118,7 @@ void generate()
         num = dist(gen);
         std::string synop = synopsis[num % 5] + topic + " in the field of " + dept + ".";
 
-        outputFile << uni << "," << dept << "," << topic << "," << lev << "," << labName << "," << firstName + " " + lastName + " " + email << "," << synop << std::endl;
-
+        outputFile << counter << ", " << uni << "," << dept << "," << topic << "," << lev << "," << labName << "," << firstName + " " + lastName + " " + email << "," << synop << std::endl;
         ss.clear();
         ss.str("");
     }
