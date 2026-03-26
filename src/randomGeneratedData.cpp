@@ -27,8 +27,8 @@ void generate()
 
     std::vector<std::string> synopsis = {"This lab explores the application of ", "Focused on investigating methods to improve ", "Researching high performance applications in ", "Developing innovative approaches in ", "Analyzing challenges in "};
 
-    std::ofstream outputFile("researchData.csv");
-    std::ifstream inputFile("customers-100000.csv");
+    std::ofstream outputFile("../src/researchData.csv");
+    std::ifstream inputFile("../src/customers-100000.csv");
     std::string line;
 
     if (!outputFile.is_open()) {
@@ -62,25 +62,7 @@ void generate()
 
         std::getline(ss, firstName, ',');
         std::getline(ss, lastName, ',');
-
-        //skip 5 times
-        if (ss.peek() == '"') {
-            ss.get();
-            std::getline(ss, temp, '"');
-            ss.get();
-            for (int j = 0; j < 4; j++) {
-                std::getline(ss, temp, ',');
-            }
-        }
-        else {
-            for (int j = 0; j < 5; j++) {
-                std::getline(ss, temp, ',');
-            }
-
-        }
-
-        std::getline(ss, email, ',');
-
+        email = firstName + lastName + "@gmail.com";
         //generate research info
 
         //generate random number between 1 and 10 to choose random college, etc.

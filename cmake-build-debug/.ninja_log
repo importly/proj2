@@ -1,0 +1,7 @@
+# ninja log v5
+1	497	1774551568663697734	CMakeFiles/proj2.dir/src/Lab.cpp.o	30a23765501b815e
+2	573	1774551568739564669	CMakeFiles/proj2.dir/src/main.cpp.o	1dced4465724d000
+0	646	1774551568812519787	CMakeFiles/proj2.dir/src/hashtable.cpp.o	b72b0882d2594532
+2	665	1774551568832561984	CMakeFiles/proj2.dir/src/n_ary.cpp.o	23552f0fe5de4023
+2	691	1774551568858935051	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.o	faf7c9d54fde5aee
+692	818	1774551568986494822	proj2	f3bef57b658c839e
