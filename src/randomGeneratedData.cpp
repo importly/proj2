@@ -133,6 +133,12 @@ void generate()
         num = dist(gen);
         std::string synop = synopsis[num % 5] + topic + " in the field of " + dept + ".";
 
-        outputFile << uni << "," << dept << "," << topic << "," << lev << "," << labName << "," << firstName + " " + lastName + " " + email << "," << synop << std::endl;
+        outputFile << uni << "," << dept << "," << topic << "," << lev << "," << labName << "," << firstName + " " + lastName + " " + email << "," << synop;
+
+        ss.clear();
+        ss.str("");
     }
+
+    outputFile.close();
+    inputFile.close();
 }
