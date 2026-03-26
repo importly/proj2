@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(src)
 
 add_executable(proj2
-        src/customers-100000.csv
+        cmake-build-debug/customers-100000.csv
         src/hashtable.cpp
         src/hashtable.h
         src/Lab.cpp
@@ -14,4 +14,5 @@ add_executable(proj2
         src/main.cpp
         src/n_ary.cpp
         src/n_ary.h
-        src/randomGeneratedData.cpp)
+        src/randomGeneratedData.cpp
+        src/randomGeneratedData.h)
