@@ -9,4 +9,5 @@ add_executable(proj2 src/main.cpp
         src/n_ary.cpp
         src/n_ary.h
         src/hashtable.cpp
-        src/hashtable.h)
+        src/hashtable.h
+        src/randomGeneratedData.cpp)
