@@ -118,3 +118,21 @@ std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::stri
 
     return allInfo;
 }
+
+void n_ary::deleteHelper(Node* node)
+{
+    if(node == nullptr)
+    {
+        return;
+    }
+    for(int i = 0; i < node->children.size(); i++)
+    {
+        deleteHelper(node->children[i]);
+    }
+    delete node;
+}
+
+n_ary::~n_ary()
+{
+    deleteHelper(head);
+}

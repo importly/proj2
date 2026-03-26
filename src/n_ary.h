@@ -18,7 +18,9 @@ class n_ary {
 
 public:
     n_ary();
+    ~n_ary();
 
+    void deleteHelper(Node* node);
     Node* searchLevel(Node* currentNode, std::string key);
     void insert(std::vector<Lab *> dataVector);
     std::vector<std::vector<std::string>> functionality(std::vector<std::string>& userInput);
