@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(src)
 
 add_executable(proj2
+        src/crow_all.h
         src/customers-100000.csv
         src/hashtable.cpp
         src/hashtable.h

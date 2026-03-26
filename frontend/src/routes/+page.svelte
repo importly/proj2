@@ -1,10 +1,10 @@
 <script>
     let formData = {};
 
-    const schools = ['University of Florida', 'Florida State University', 'University of Central Florida'];
-    const departments = ['Computer Science', 'Computer Engineering', 'Mechanical Engineering'];
-    const categories = ['Cybersecurity', 'Machine Learning', 'Genetics'];
-    const studentLevels = ['Freshman', 'Sophomore', 'Junior', "Senior", "Graduate"];
+    const schools = ['University of Florida', 'Florida State University', 'University of Central Florida', 'University of Miami', 'University of South Florida', 'Florida International University', 'Florida Atlantic University', 'Florida Gulf Coast University', 'NOVA Southeastern University', 'University of North Florida'];
+    const departments = ['Computer Science', 'Computer Engineering', 'Mechanical Engineering', 'Aerospace Engineering', 'Electrical Engineering', 'Biomedical Engineering', 'Civil Engineering', 'Chemical Engineering', 'Nuclear Engineering', 'Physics'];
+    const categories = ['Distributed Vision', 'Machine Learning', 'Computer Vision', 'Natural Language Processing', 'Human-Computer Interation', 'Embedded Systems Design', 'Computer Architecture Optimization', 'Autonomous Systems', 'IoT Security', 'Microelectronics', 'Fluid Dynamics', 'Thermodynamics and Heat Transfer', 'Additive Manufacturing', 'Robotics and Mechatronics', 'Vibrations and Control Systems', 'Aerodynamics', 'Propulsion Systems', 'Flight Dynamics and Control', 'Spacecraft Design', 'Computational Fluid Dynamics', 'Signal Processing', 'Control Systems', 'Microelectronics and VLSI Design', 'Wireless Communications', 'Power Systems and Smart Grids', 'Medical Imaging', 'Biomaterials Development', 'Tissue Engineering', 'Neural Engineering', 'Bioinstrumentation', 'Structural Analysis', 'Transportation Systems', 'Geotechnical Engineering', 'Environmental Engineering', 'Construction Management', 'Process Design and Optimization', 'Reaction Engineering', 'Biochemical Engineering', 'Polymer Science', 'Separation Processes', 'Reactor Design', 'Radiation Detection and Measurement', 'Nuclear Materials', 'Nuclear Safety and Risk Analysis', 'Fusion Energy', 'Quantum Mechanics', 'Astrophysics', 'Particle Physics', 'Condensed Matter Physics', 'Optics and Photonics'];
+    const studentLevels = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
 
     function submit() {
         console.log(formData);

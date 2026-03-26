@@ -2,8 +2,6 @@
 53	1647	7962565833859198	CMakeFiles/proj2.dir/src/main.cpp.obj	5ac967633ad600f1
 48	1774	7962565833809263	CMakeFiles/proj2.dir/src/Lab.cpp.obj	e641004923fa3319
 57	1845	7962565833909231	CMakeFiles/proj2.dir/src/n_ary.cpp.obj	7fb898c1f2b497b8
+1856	2665	7962587428377253	proj2.exe	a785777b88616d37
 4	1883	7962565833379200	CMakeFiles/proj2.dir/src/hashtable.cpp.obj	b50687f315abd499
-62	1956	7962565833949254	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj	44dad9056c0e3cf9
-1956	2321	7962565852902495	proj2.exe	a785777b88616d37
-79	2283	7962579208106563	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj	44dad9056c0e3cf9
-2284	3477	7962579230144597	proj2.exe	a785777b88616d37
+132	1855	7962587411139488	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj	44dad9056c0e3cf9

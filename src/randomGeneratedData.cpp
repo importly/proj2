@@ -18,11 +18,11 @@ void generate()
     std::vector<std::string> ME = {"Fluid Dynamics", "Thermodynamics and Heat Transfer", "Additive Manufacturing", "Robotics and Mechatronics", "Vibrations and Control Systems"};
     std::vector<std::string> AE = {"Aerodynamics", "Propulsion Systems", "Flight Dynamics and Control", "Spacecraft Design", "Computational Fluid Dynamics"};
     std::vector<std::string> EE = {"Signal Processing", "Control Systems", "Microelectronics and VLSI Design", "Wireless Communications", "Power Systems and Smart Grids"};
-    std::vector<std::string> BE = {"Medical Imaging", "Biomaterials Development", "Tissue Engineering", "Neural Engineering", "BioInstrumentation"};
+    std::vector<std::string> BE = {"Medical Imaging", "Biomaterials Development", "Tissue Engineering", "Neural Engineering", "Bioinstrumentation"};
     std::vector<std::string> CE = {"Structural Analysis", "Transportation Systems", "Geotechnical Engineering", "Environmental Engineering", "Construction Management"};
     std::vector<std::string> CHE = {"Process Design and Optimization", "Reaction Engineering", "Biochemical Engineering", "Polymer Science", "Separation Processes"};
     std::vector<std::string> NE = {"Reactor Design", "Radiation Detection and Measurement", "Nuclear Materials", "Nuclear Safety and Risk Analysis", "Fusion Energy"};
-    std::vector<std::string> PHY = {"Quantum Mechanics", "AstroPhysics", "Particle Physics", "Condensed Matter Physics", "Optics and Photonics"};
+    std::vector<std::string> PHY = {"Quantum Mechanics", "Astrophysics", "Particle Physics", "Condensed Matter Physics", "Optics and Photonics"};
     std::vector<std::string> level = {"Freshman", "Sophomore","Junior", "Senior"};
 
     std::vector<std::string> synopsis = {"This lab explores the application of ", "Focused on investigating methods to improve ", "Researching high performance applications in ", "Developing innovative approaches in ", "Analyzing challenges in "};
