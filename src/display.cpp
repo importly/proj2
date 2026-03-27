@@ -317,3 +317,109 @@ void displayWindow::topicScreen()
         topicWindow.display();
     }
 }
+
+
+void displayWindow::levelScreen()
+{
+    std::vector<std::string> level = {"Freshman", "Sophomore","Junior", "Senior"};
+    sf::RenderWindow levelWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
+
+    sf::Vector2u size = levelWindow.getSize();
+    float centerX = size.x / 2.0f;
+    float btnWidth = 600.0f;
+    float btnHeight = 85.0f;
+    float xSpace = 40.0f;
+    float ySpace = 70.0f;
+    float buttonGridWidth = (2 * btnWidth) + xSpace;
+    float xStart = centerX - (buttonGridWidth / 2.0f);
+    float yStart = 350.0f;
+
+    sf::Font font;
+    if (!font.loadFromFile("../src/font.ttf")) {
+        std::cerr << "Can't find font file.";
+    }
+
+    sf::Text title("Research Lab Finder", font, 55);
+    title.setFillColor(sf::Color::White);
+    title.setStyle(sf::Text::Bold);
+    setText(title, centerX, 100.0f);
+
+    sf::Text tinyText("Please select a level to find available research opportunities: ", font, 22);
+    tinyText.setFillColor(sf::Color::White);
+    setText(tinyText, centerX, 180.0f);
+
+    sf::RectangleShape button(sf::Vector2f(btnWidth, btnHeight));
+
+    while(levelWindow.isOpen()) {
+        sf::Event event;
+        while (levelWindow.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                levelWindow.close();
+            }
+
+            if(event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    sf::Vector2i position = sf::Mouse::getPosition(levelWindow);
+                    for(int i = 0 ; i < level.size(); i++)
+                    {
+                        int row = i / 2;
+                        int col = i % 2;
+
+                        float x = xStart + (col * (btnWidth + xSpace));
+                        float y = yStart + (row * (btnHeight + ySpace));
+                        button.setPosition(x, y);
+                        if (button.getGlobalBounds().contains(static_cast<sf::Vector2f>(position)))
+                        {
+                            userValues.push_back(level[i]);
+                            levelWindow.close();
+                        }
+                    }
+
+                }
+            }
+
+        }
+        levelWindow.clear(sf::Color(76,124,138));
+        levelWindow.draw(title);
+        levelWindow.draw(tinyText);
+
+        sf::Vector2i everyPosition = sf::Mouse::getPosition(levelWindow);
+
+
+        //drawing the buttons
+        for(int i = 0; i < level.size(); i++)
+        {
+            //column and rows of buttons
+            int row = i / 2;
+            int col = i % 2;
+
+            float x = xStart + (col * (btnWidth + xSpace));
+            float y = yStart + (row * (btnHeight + ySpace));
+            button.setPosition(x, y);
+
+            if(button.getGlobalBounds().contains(static_cast<sf::Vector2f>(everyPosition)))
+            {
+                //used this color for fill #96B4AA
+                button.setFillColor(sf::Color(150, 180, 170));
+                button.setOutlineThickness(3.0f);
+                button.setOutlineColor(sf::Color::White);
+            }
+            else
+            {
+                button.setFillColor(sf::Color(127, 156, 150));
+                button.setOutlineThickness(0.0f);
+            }
+
+            sf::Text buttonText(level[i], font, 24);
+            buttonText.setFillColor(sf::Color::White);
+            setText(buttonText, x + (btnWidth/ 2.0), y + (btnHeight/ 2.0));
+
+            levelWindow.draw(button);
+            levelWindow.draw(buttonText);
+        }
+        levelWindow.display();
+    }
+}
+

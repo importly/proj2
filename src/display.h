@@ -16,6 +16,7 @@ public:
     void uniScreen();
     void departmentScreen();
     void topicScreen();
+    void levelScreen();
     void setText(sf::Text &text, float x, float y);
 
     std::vector<std::string> userValues = {};
