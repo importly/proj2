@@ -1,7 +1,6 @@
 #include "display.h"
 #include <vector>
 #include <SFML/Graphics.hpp>
-std::vector<std::string> userValues = {};
 void displayWindow::setText(sf::Text &text, float x, float y)
 {
     sf::FloatRect textRect = text.getLocalBounds();
@@ -109,13 +108,28 @@ void displayWindow::uniScreen() {
                 uniWindow.close();
             }
 
-            //if screen is clicked
             if(event.type == sf::Event::MouseButtonPressed)
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
-                    uniWindow.close();
-                    departmentScreen();
+                    sf::Vector2i position = sf::Mouse::getPosition(uniWindow);
+                    for(int i = 0 ; i < university.size(); i++)
+                    {
+                        int row = i / 2;
+                        int col = i % 2;
+
+                        float x = xStart + (col * (btnWidth + xSpace));
+                        float y = yStart + (row * (btnHeight + ySpace));
+                        button.setPosition(x, y);
+                        if (button.getGlobalBounds().contains(static_cast<sf::Vector2f>(position)))
+                        {
+                            userValues.push_back(university[i]);
+                            uniWindow.close();
+                            departmentScreen();
+                            break;
+                        }
+                    }
+
                 }
             }
         }
@@ -189,6 +203,30 @@ void displayWindow::departmentScreen() {
             {
                 deptartmentWindow.close();
             }
+            if(event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    sf::Vector2i position = sf::Mouse::getPosition(deptartmentWindow);
+                    for(int i = 0 ; i < department.size(); i++)
+                    {
+                        int row = i / 2;
+                        int col = i % 2;
+
+                        float x = xStart + (col * (btnWidth + xSpace));
+                        float y = yStart + (row * (btnHeight + ySpace));
+                        button.setPosition(x, y);
+                        if (button.getGlobalBounds().contains(static_cast<sf::Vector2f>(position)))
+                        {
+                            userValues.push_back(department[i]);
+                            deptartmentWindow.close();
+                            topicScreen();
+                            break;
+                        }
+                    }
+
+                }
+            }
         }
 
 
@@ -215,5 +253,23 @@ void displayWindow::departmentScreen() {
             deptartmentWindow.draw(buttonText);
         }
         deptartmentWindow.display();
+    }
+}
+
+
+void displayWindow::topicScreen()
+{
+    sf::RenderWindow topicWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
+
+    while(topicWindow.isOpen()) {
+        sf::Event event;
+        while (topicWindow.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                topicWindow.close();
+            }
+
+        }
+        topicWindow.clear(sf::Color(76,124,138));
+        topicWindow.display();
     }
 }
