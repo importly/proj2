@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.2)
 project(proj2)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -23,4 +23,4 @@ if (WIN32) # fix I had to find to make sfml work with linking on windows
     )
 endif()
 
-target_link_libraries(proj2 sfml-system sfml-window sfml-graphics sfml-audio sfml-main)
+target_link_libraries(proj2 sfml-system sfml-window sfml-graphics sfml-audio)

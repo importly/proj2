@@ -1,5 +1,7 @@
 #include "display.h"
-
+#include <vector>
+#include <SFML/Graphics.hpp>
+std::vector<std::string> userValues = {};
 void displayWindow::setText(sf::Text &text, float x, float y)
 {
     sf::FloatRect textRect = text.getLocalBounds();
@@ -66,21 +68,36 @@ void displayWindow::screen() {
 }
 
 void displayWindow::uniScreen() {
+    std::vector<std::string> university = {"University of Florida", "Florida State University", "University of Miami", "University of South Florida", "University of Central Florida", "Florida International University", "Florida Atlantic University", "Florida Gulf Coast University", "NOVA Southeastern University", "University of North Florida"};
     sf::RenderWindow uniWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
+
     sf::Vector2u size = uniWindow.getSize();
     float centerX = size.x / 2.0f;
-    float centerY = size.y / 2.0f;
+
+    float btnWidth = 600.0f;
+    float btnHeight = 85.0f;
+    float xSpace = 40.0f;
+    float ySpace = 25.0f;
+
+    float buttonGridWidth = (2 * btnWidth) + xSpace;
+    float xStart = centerX - (buttonGridWidth / 2.0f);
+    float yStart = 250.0f;
 
     sf::Font font;
     if (!font.loadFromFile("../src/font.ttf")) {
         std::cerr << "Can't find font file.";
     }
-    sf::Text title("Research Lab Finder", font, 50);
+    sf::Text title("Research Lab Finder", font, 55);
     title.setFillColor(sf::Color::White);
-    title.setStyle(sf::Text::Bold);
-    setText(title, centerX, centerY);
+    //title.setStyle(sf::Text::Bold);
+    setText(title, centerX, 100.0f);
 
-    sf::Text tinyText("Please select a university to find available research oppurtunities: ", font, 15);
+    sf::Text tinyText("Please select a university to find available research opportunities: ", font, 22);
+    tinyText.setFillColor(sf::Color::White);
+    setText(tinyText, centerX, 180.0f);
+
+    sf::RectangleShape button(sf::Vector2f(btnWidth, btnHeight));
+
     while(uniWindow.isOpen())
     {
         sf::Event event;
@@ -92,8 +109,29 @@ void displayWindow::uniScreen() {
             }
         }
 
-        uniWindow.clear(sf::Color(76,124,138));
-        uniWindow.display();
 
+        uniWindow.clear(sf::Color(76,124,138));
+        uniWindow.draw(title);
+        uniWindow.draw(tinyText);
+        //drawing the buttons
+        for(int i = 0; i < university.size(); i++)
+        {
+            //column and rows of buttons
+            int row = i / 2;
+            int col = i % 2;
+
+            float x = xStart + (col * (btnWidth + xSpace));
+            float y = yStart + (row * (btnHeight + ySpace));
+            button.setPosition(x, y);
+            button.setFillColor(sf::Color(127, 156, 150));
+
+            sf::Text buttonText(university[i], font, 24);
+            buttonText.setFillColor(sf::Color::White);
+            setText(buttonText, x + (btnWidth/ 2.0), y + (btnHeight/ 2.0));
+
+            uniWindow.draw(button);
+            uniWindow.draw(buttonText);
+        }
+        uniWindow.display();
     }
 }
