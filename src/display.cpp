@@ -10,25 +10,30 @@ void displayWindow::setText(sf::Text &text, float x, float y)
 void displayWindow::screen() {
     sf::RenderWindow window(sf::VideoMode(1600, 1200), "Research Lab Finder");
 
+    sf::Vector2u size = window.getSize();
+    float centerX = size.x / 2.0f;
+    float centerY = size.y / 2.0f;
+
     sf::Font font;
-    if(!font.loadFromFile("../src/font.ttf"))
-    {
-        std::cerr << "Font file not found.";
+    if (!font.loadFromFile("../src/font.ttf")) {
+        std::cerr << "Can't find font file.";
     }
 
-    sf::Text title("Welcome to the Research Lab Finder!", font,50);
-    setText(title, 800,500);
+    sf::Text title("Welcome to the Research Lab Finder!", font, 50);
     title.setFillColor(sf::Color::White);
     title.setStyle(sf::Text::Bold);
 
-    sf::RectangleShape button(sf::Vector2f(200,70));
-    button.setFillColor(sf::Color(127,156,150));
-    button.setPosition(700,565);
+    setText(title, centerX, centerY - 100.0f);
+
+    sf::RectangleShape button(sf::Vector2f(200, 70));
+    button.setFillColor(sf::Color(127, 156, 150));
+
+    button.setOrigin(100.0f, 35.0f);
+    button.setPosition(centerX, centerY + 50.0f);
 
     sf::Text buttonText("Start Here!!", font, 20);
     buttonText.setFillColor(sf::Color::White);
-    setText(buttonText, 800,600);
-
+    setText(buttonText, centerX, centerY + 50.0f);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -36,6 +41,20 @@ void displayWindow::screen() {
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+ //used https://www.google.com/search?q=how+to+check+if+a+button+is+clicked+in+sfml&oq=how+to+check+if+a+button+is+clicked+in+sfml&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRigATIHCAQQIRifBTIHCAUQIRiPAtIBCDkyNDNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8
+ //^^ helped figure out how to check if a button is clicked and what to do next
+            if(event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    sf::Vector2i position = sf::Mouse::getPosition(window);
+                    if (button.getGlobalBounds().contains(static_cast<sf::Vector2f>(position)))
+                    {
+                        window.close();
+                        uniScreen();
+                    }
+                }
+            }
         }
 
         window.clear(sf::Color(76,124,138));
@@ -43,5 +62,24 @@ void displayWindow::screen() {
         window.draw(button);
         window.draw(buttonText);
         window.display();
+    }
+}
+
+void displayWindow::uniScreen() {
+    sf::RenderWindow uniWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
+    while(uniWindow.isOpen())
+    {
+        sf::Event event;
+        while (uniWindow.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
+                uniWindow.close();
+            }
+        }
+
+        uniWindow.clear(sf::Color(76,124,138));
+        uniWindow.display();
+
     }
 }

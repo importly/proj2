@@ -13,6 +13,7 @@ class displayWindow {
 
 public:
     void screen();
+    void uniScreen();
     void setText(sf::Text &text, float x, float y);
 
 };
