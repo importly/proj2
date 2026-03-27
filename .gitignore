@@ -1,5 +1,5 @@
 /frontend/node_modules
 .idea
-/cmake-build-debug
+/cmake-build-debug/
 /build
 /cmake-build-release/
