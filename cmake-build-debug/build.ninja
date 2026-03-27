@@ -51,35 +51,35 @@ build cmake_object_order_depends_target_proj2: phony || CMakeFiles/proj2.dir
 
 build CMakeFiles/proj2.dir/src/hashtable.cpp.o: CXX_COMPILER__proj2_unscanned_Debug /Users/krinaparikh/proj2/src/hashtable.cpp || cmake_object_order_depends_target_proj2
   DEP_FILE = CMakeFiles/proj2.dir/src/hashtable.cpp.o.d
-  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/krinaparikh/proj2/src
   OBJECT_DIR = CMakeFiles/proj2.dir
   OBJECT_FILE_DIR = CMakeFiles/proj2.dir/src
 
 build CMakeFiles/proj2.dir/src/Lab.cpp.o: CXX_COMPILER__proj2_unscanned_Debug /Users/krinaparikh/proj2/src/Lab.cpp || cmake_object_order_depends_target_proj2
   DEP_FILE = CMakeFiles/proj2.dir/src/Lab.cpp.o.d
-  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/krinaparikh/proj2/src
   OBJECT_DIR = CMakeFiles/proj2.dir
   OBJECT_FILE_DIR = CMakeFiles/proj2.dir/src
 
 build CMakeFiles/proj2.dir/src/main.cpp.o: CXX_COMPILER__proj2_unscanned_Debug /Users/krinaparikh/proj2/src/main.cpp || cmake_object_order_depends_target_proj2
   DEP_FILE = CMakeFiles/proj2.dir/src/main.cpp.o.d
-  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/krinaparikh/proj2/src
   OBJECT_DIR = CMakeFiles/proj2.dir
   OBJECT_FILE_DIR = CMakeFiles/proj2.dir/src
 
 build CMakeFiles/proj2.dir/src/n_ary.cpp.o: CXX_COMPILER__proj2_unscanned_Debug /Users/krinaparikh/proj2/src/n_ary.cpp || cmake_object_order_depends_target_proj2
   DEP_FILE = CMakeFiles/proj2.dir/src/n_ary.cpp.o.d
-  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/krinaparikh/proj2/src
   OBJECT_DIR = CMakeFiles/proj2.dir
   OBJECT_FILE_DIR = CMakeFiles/proj2.dir/src
 
 build CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.o: CXX_COMPILER__proj2_unscanned_Debug /Users/krinaparikh/proj2/src/randomGeneratedData.cpp || cmake_object_order_depends_target_proj2
   DEP_FILE = CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.o.d
-  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/krinaparikh/proj2/src
   OBJECT_DIR = CMakeFiles/proj2.dir
   OBJECT_FILE_DIR = CMakeFiles/proj2.dir/src
