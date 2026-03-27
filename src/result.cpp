@@ -67,6 +67,23 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     horizonLine.setOrigin(0, 1.0f);
     horizonLine.setPosition(0, 250.0f);
 
+    float yStart = 260.0f;
+    std::vector<sf::Text> naryResult;
+    for (int i = 0; i < 1; i++) {
+
+        for (int j = 0; j < naryResults[i].size(); j++) {
+            sf::Text researchInfo(naryResults[i][j], font, 22);
+            researchInfo.setFillColor(sf::Color::White);
+            researchInfo.setPosition(20.0f, yStart);
+
+            naryResult.emplace_back(researchInfo);
+
+            yStart += 30;
+        }
+
+        yStart += 50;
+    }
+
     while(resultWindow.isOpen()) {
 
         sf::Event event;
@@ -77,6 +94,11 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         }
 
         resultWindow.clear(sf::Color(76,124,138));
+
+        for (int i = 0; i < naryResults.size(); i++) {
+            resultWindow.draw(naryResult[i]);
+        }
+
         resultWindow.draw(title);
         resultWindow.draw(tinyText);
         resultWindow.draw(verticalLine);
