@@ -12,6 +12,7 @@ void result::resultScreen() {
     sf::Vector2u size = resultWindow.getSize();
     float centerX = size.x / 2.0f;
 
+
     sf::Font font;
     if (!font.loadFromFile("../src/font.ttf")) {
         std::cerr << "Can't find font file.";
@@ -26,6 +27,11 @@ void result::resultScreen() {
     tinyText.setFillColor(sf::Color::White);
     setText(tinyText, centerX, 180.0f);
 
+    sf::RectangleShape verticalLine(sf::Vector2f(2.0f, 800.0f));
+    verticalLine.setFillColor(sf::Color::White);
+    verticalLine.setOrigin(1.0f, 0.0f);
+    verticalLine.setPosition(centerX, 250.0f);
+
     while(resultWindow.isOpen()) {
 
         sf::Event event;
@@ -38,6 +44,7 @@ void result::resultScreen() {
 
         resultWindow.draw(title);
         resultWindow.draw(tinyText);
+        resultWindow.draw(verticalLine);
         resultWindow.display();
     }
 }
