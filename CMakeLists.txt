@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 4.1)
 project(proj2)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -15,6 +15,8 @@ include_directories(${SFML_SOURCE_DIR}/include)
 file(GLOB_RECURSE SRC "src/*.cpp" "src/*.hpp" "src/*.h")
 file(GLOB BASE "*.cpp" "*.hpp" "*.h")
 
-add_executable(proj2 ${SRC} ${BASE})
+add_executable(proj2 ${SRC} ${BASE}
+        src/display.cpp
+        src/display.h)
 
 target_link_libraries(proj2 sfml-system sfml-window sfml-graphics sfml-audio)
