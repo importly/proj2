@@ -1,32 +1,24 @@
 #include <iostream>
 #include <stack>
 #include <vector>
+#include <SFML/Graphics.hpp>
 #include "randomGeneratedData.h"
-#include <>
-
 
 int main() {
-    int main()
-    {
-        sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-        sf::CircleShape shape(100.f);
-        shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode(800, 600), "UF Lab Finder - SFML Edition");
 
-        while (window.isOpen())
-        {
-            sf::Event event;
-            while (window.pollEvent(event))
-            {
-                if (event.type == sf::Event::Closed)
-                    window.close();
-            }
+    std::cout << "SFML Window is opening..." << std::endl;
 
-            window.clear();
-            window.draw(shape);
-            window.display();
+    // The "Infinite Loop" for the GUI
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
         }
 
-        return 0;
+        window.clear(sf::Color(0, 33, 165)); // UF Blue
+        // You can draw your 100k data points here later!
+        window.display();
     }
-    generate();
 };
