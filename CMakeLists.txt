@@ -14,7 +14,8 @@ FetchContent_MakeAvailable(SFML)
 file(GLOB_RECURSE SRC "src/*.cpp" "src/*.hpp" "src/*.h")
 file(GLOB BASE "*.cpp" "*.hpp" "*.h")
 
-add_executable(proj2 ${SRC} ${BASE})
+add_executable(proj2 ${SRC} ${BASE}
+        src/result.h)
 
 if (WIN32) # fix I had to find to make sfml work with linking on windows
     add_custom_command(TARGET proj2 POST_BUILD
