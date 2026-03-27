@@ -14,7 +14,6 @@ class n_ary {
     };
 
     Node* head;
-    std::vector<std::vector<std::string>> allInfo;
 
 public:
     n_ary();
