@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.2)
 project(proj2)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -17,6 +17,7 @@ file(GLOB BASE "*.cpp" "*.hpp" "*.h")
 
 add_executable(proj2 ${SRC} ${BASE}
         src/display.cpp
-        src/display.h)
+        src/display.h
+        src/display.cpp)
 
 target_link_libraries(proj2 sfml-system sfml-window sfml-graphics sfml-audio)
