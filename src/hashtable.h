@@ -15,7 +15,7 @@ class hashtable {
     std::vector<std::vector<std::vector<Lab>>> table;
     //  ^ hashed ^ handle collisions ^ vec of labs
     size_t num_labs = 0;
-    hashtable() {
+    hashtable() { // had issues with / by 0 check, need initializations.
         table.resize(7);
     }
 
