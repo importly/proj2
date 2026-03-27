@@ -508,7 +508,7 @@ void displayWindow::levelScreen()
                             userValues.push_back(level[i]);
                             levelWindow.close();
                             result r1;
-                            r1.resultScreen();
+                            r1.resultScreen(userValues);
                         }
                     }
 
@@ -556,8 +556,4 @@ void displayWindow::levelScreen()
         }
         levelWindow.display();
     }
-}
-
-std::vector<std::string> displayWindow::getUserValues() {
-    return userValues;
 }

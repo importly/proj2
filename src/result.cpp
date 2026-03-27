@@ -1,5 +1,7 @@
 #include "result.h"
 #include "display.h"
+#include <chrono>
+
 void result::setText(sf::Text &text, float x, float y)
 {
     sf::FloatRect textRect = text.getLocalBounds();
@@ -7,8 +9,24 @@ void result::setText(sf::Text &text, float x, float y)
     text.setPosition(sf::Vector2f(x, y));
 }
 
-void result::resultScreen() {
+void result::resultScreen(std::vector<std::string>& userInput) {
 
+    //call all n-ary and hash functions
+    std::string naryTime;
+    std::vector<std::vector<std::string>> naryResults;
+
+    auto start = std::chrono::high_resolution_clock::now();
+
+    n_ary tree;
+    tree.insert();
+    naryResults = tree.functionality(userInput);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end - start;
+    naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
+
+
+    //display
     sf::RenderWindow resultWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
     sf::Vector2u size = resultWindow.getSize();
     float centerX = size.x / 2.0f;
@@ -24,6 +42,16 @@ void result::resultScreen() {
     setText(title, centerX, 100.0f);
 
     sf::Text tinyText("Here are the available research opportunities: ", font, 22);
+    tinyText.setFillColor(sf::Color::White);
+    setText(tinyText, centerX, 180.0f);
+
+    std::string naryText = "N-Ary Tree (Time Taken: " + naryTime + ")";
+    sf::Text nary(naryText, font, 22);
+    tinyText.setFillColor(sf::Color::White);
+    setText(tinyText, centerX, 180.0f);
+
+    std::string hashText = "Hash Table (Time Taken: " + hashTime + ")";
+    sf::Text hash("Here are the available research opportunities: ", font, 22);
     tinyText.setFillColor(sf::Color::White);
     setText(tinyText, centerX, 180.0f);
 
