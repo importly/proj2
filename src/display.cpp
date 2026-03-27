@@ -507,6 +507,8 @@ void displayWindow::levelScreen()
                         {
                             userValues.push_back(level[i]);
                             levelWindow.close();
+                            result r1;
+                            r1.resultScreen();
                         }
                     }
 
