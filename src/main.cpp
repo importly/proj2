@@ -3,14 +3,10 @@
 #include <iostream>
 #include <stack>
 #include <vector>
-#include "crow_all.h"
 
 
 #include "randomGeneratedData.h"
-#include "crow_all.h"
 
 int main() {
-
-
     generate();
 };
