@@ -8,6 +8,7 @@ void result::setText(sf::Text &text, float x, float y)
 }
 
 void result::resultScreen() {
+
     sf::RenderWindow resultWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
     sf::Vector2u size = resultWindow.getSize();
     float centerX = size.x / 2.0f;
@@ -26,6 +27,11 @@ void result::resultScreen() {
     tinyText.setFillColor(sf::Color::White);
     setText(tinyText, centerX, 180.0f);
 
+    sf::RectangleShape horizonLine(sf::Vector2f(size.x, 2.0f));
+    horizonLine.setFillColor(sf::Color::White);
+    horizonLine.setOrigin(0, 1.0f);
+    horizonLine.setPosition(0, 250.0f);
+
     while(resultWindow.isOpen()) {
 
         sf::Event event;
@@ -34,10 +40,11 @@ void result::resultScreen() {
                 resultWindow.close();
             }
         }
-        resultWindow.clear(sf::Color(76,124,138));
 
+        resultWindow.clear(sf::Color(76,124,138));
         resultWindow.draw(title);
         resultWindow.draw(tinyText);
+        resultWindow.draw(horizonLine);
         resultWindow.display();
     }
 }
