@@ -139,3 +139,7 @@
 5011	5938	1774645678769358782	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.o	6ed2c2c4b0a07b57
 13944	13999	1774645686832603467	_deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.cpp.o	57c33ece8b6f2d8a
 13999	14588	1774645687419556813	_deps/sfml-build/src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.cpp.o	a04bb5912fade5ca
+56	1038	1774647591833097214	CMakeFiles/proj2.dir/src/main.cpp.o	b5c3b4cb52db04d5
+56	1040	1774647591840188921	CMakeFiles/proj2.dir/src/result.cpp.o	c989571eae90623
+55	1125	1774647591925038824	CMakeFiles/proj2.dir/src/display.cpp.o	dba18715b58a9d1b
+1125	1281	1774647592083669743	proj2	6305bfc01848fe7
