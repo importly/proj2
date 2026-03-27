@@ -27,6 +27,11 @@ void result::resultScreen() {
     tinyText.setFillColor(sf::Color::White);
     setText(tinyText, centerX, 180.0f);
 
+    sf::RectangleShape verticalLine(sf::Vector2f(2.0f, 800.0f));
+    verticalLine.setFillColor(sf::Color::White);
+    verticalLine.setOrigin(1.0f, 0.0f);
+    verticalLine.setPosition(centerX, 250.0f);
+
     sf::RectangleShape horizonLine(sf::Vector2f(size.x, 2.0f));
     horizonLine.setFillColor(sf::Color::White);
     horizonLine.setOrigin(0, 1.0f);
@@ -44,6 +49,7 @@ void result::resultScreen() {
         resultWindow.clear(sf::Color(76,124,138));
         resultWindow.draw(title);
         resultWindow.draw(tinyText);
+        resultWindow.draw(verticalLine);
         resultWindow.draw(horizonLine);
         resultWindow.display();
     }
