@@ -10,13 +10,13 @@
 
 class displayWindow {
 
+    std::string dept;
 
 public:
     void screen();
     void uniScreen();
     void departmentScreen();
     void setText(sf::Text &text, float x, float y);
-
 };
 
 

@@ -150,9 +150,9 @@ void displayWindow::uniScreen() {
 void displayWindow::departmentScreen() {
 
     std::vector<std::string> department = {"Computer Science", "Computer Engineering", "Mechanical Engineering", "Aerospace Engineering", "Electrical Engineering", "Biomedical Engineering", "Civil Engineering", "Chemical Engineering", "Nuclear Engineering", "Physics"};
-    sf::RenderWindow deptartmentWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
+    sf::RenderWindow departmentWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
 
-    sf::Vector2u size = deptartmentWindow.getSize();
+    sf::Vector2u size = departmentWindow.getSize();
     float centerX = size.x / 2.0f;
 
     float btnWidth = 600.0f;
@@ -180,21 +180,28 @@ void displayWindow::departmentScreen() {
 
     sf::RectangleShape button(sf::Vector2f(btnWidth, btnHeight));
 
-    while(deptartmentWindow.isOpen())
+    while(departmentWindow.isOpen())
     {
         sf::Event event;
-        while (deptartmentWindow.pollEvent(event))
+        while (departmentWindow.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
             {
-                deptartmentWindow.close();
+                departmentWindow.close();
+            }
+            if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+            {
+                if(button.getGlobalBounds().contains(event.mouseButton.x,event.mouseButton.y))
+                {
+                    dept = "Physics";
+                }
             }
         }
 
 
-        deptartmentWindow.clear(sf::Color(76,124,138));
-        deptartmentWindow.draw(title);
-        deptartmentWindow.draw(tinyText);
+        departmentWindow.clear(sf::Color(76,124,138));
+        departmentWindow.draw(title);
+        departmentWindow.draw(tinyText);
         //drawing the buttons
         for(int i = 0; i < department.size(); i++)
         {
@@ -211,9 +218,11 @@ void displayWindow::departmentScreen() {
             buttonText.setFillColor(sf::Color::White);
             setText(buttonText, x + (btnWidth/ 2.0), y + (btnHeight/ 2.0));
 
-            deptartmentWindow.draw(button);
-            deptartmentWindow.draw(buttonText);
+            departmentWindow.draw(button);
+            departmentWindow.draw(buttonText);
         }
-        deptartmentWindow.display();
+        departmentWindow.display();
     }
 }
+
+
