@@ -11,13 +11,16 @@ FetchContent_Declare(SFML
 )
 FetchContent_MakeAvailable(SFML)
 
-include_directories(${SFML_SOURCE_DIR}/include)
 file(GLOB_RECURSE SRC "src/*.cpp" "src/*.hpp" "src/*.h")
 file(GLOB BASE "*.cpp" "*.hpp" "*.h")
 
-add_executable(proj2 ${SRC} ${BASE}
-        src/display.cpp
-        src/display.h
-        src/display.cpp)
+add_executable(proj2 ${SRC} ${BASE})
+
+if (WIN32) # fix I had to find to make sfml work with linking on windows
+    add_custom_command(TARGET proj2 POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy -t $<TARGET_FILE_DIR:proj2> $<TARGET_RUNTIME_DLLS:proj2>
+        COMMAND_EXPAND_LISTS
+    )
+endif()
 
 target_link_libraries(proj2 sfml-system sfml-window sfml-graphics sfml-audio)
