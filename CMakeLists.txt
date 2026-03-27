@@ -1,19 +1,20 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.2)
 project(proj2)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
-include_directories(src)
+# SFML FETCH SECTION
+include(FetchContent)
+FetchContent_Declare(SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG 2.6.1
+)
+FetchContent_MakeAvailable(SFML)
 
-add_executable(proj2
-        src/crow_all.h
-        src/customers-100000.csv
-        src/hashtable.cpp
-        src/hashtable.h
-        src/Lab.cpp
-        src/Lab.h
-        src/main.cpp
-        src/n_ary.cpp
-        src/n_ary.h
-        src/randomGeneratedData.cpp
-        src/randomGeneratedData.h)
+include_directories(${SFML_SOURCE_DIR}/include)
+file(GLOB_RECURSE SRC "src/*.cpp" "src/*.hpp" "src/*.h")
+file(GLOB BASE "*.cpp" "*.hpp" "*.h")
+
+add_executable(proj2 ${SRC} ${BASE})
+
+target_link_libraries(proj2 sfml-system sfml-window sfml-graphics sfml-audio)

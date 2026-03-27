@@ -3,7 +3,7 @@
 //
 
 #include "hashtable.h"
-
+#include <vector>
 bool hashtable::push_back(const std::string &key, const Lab &lab) {
     if (table.size()/table.capacity() > 0.8) table.resize(table.capacity()*2);
     auto possible_labs_vec = table[lab.hash()%table.capacity()];
