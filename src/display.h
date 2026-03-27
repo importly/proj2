@@ -10,12 +10,13 @@
 
 class displayWindow {
 
-    std::string dept;
+    std::vector<std::string> userValues = {};
 
 public:
     void screen();
     void uniScreen();
     void departmentScreen();
+    void topicScreen();
     void setText(sf::Text &text, float x, float y);
 };
 
