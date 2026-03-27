@@ -1,6 +1,7 @@
 #include "display.h"
-#include <vector>
 #include <SFML/Graphics.hpp>
+
+
 void displayWindow::setText(sf::Text &text, float x, float y)
 {
     sf::FloatRect textRect = text.getLocalBounds();
@@ -299,7 +300,6 @@ void displayWindow::departmentScreen() {
     }
 }
 
-
 void displayWindow::topicScreen()
 {
     //possible vectors of topics
@@ -452,7 +452,6 @@ void displayWindow::topicScreen()
     }
 }
 
-
 void displayWindow::levelScreen()
 {
     std::vector<std::string> level = {"Freshman", "Sophomore","Junior", "Senior"};
@@ -557,3 +556,6 @@ void displayWindow::levelScreen()
     }
 }
 
+std::vector<std::string> displayWindow::getUserValues() {
+    return userValues;
+}
