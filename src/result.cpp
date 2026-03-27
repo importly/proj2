@@ -24,7 +24,7 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     std::chrono::duration<double> elapsed_seconds = end - start;
     naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
 
-    std::string hashTime;
+    std::string hashTime = " ";
 
     //display
     sf::RenderWindow resultWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
@@ -47,13 +47,15 @@ void result::resultScreen(std::vector<std::string>& userInput) {
 
     std::string naryText = "N-Ary Tree (Time Taken: " + naryTime + ")";
     sf::Text nary(naryText, font, 22);
-    tinyText.setFillColor(sf::Color::White);
-    setText(tinyText, centerX, 180.0f);
+    nary.setFillColor(sf::Color::White);
+    nary.setStyle(sf::Text::Bold);
+    setText(nary, centerX/2.0f, 237.0f);
 
     std::string hashText = "Hash Table (Time Taken: " + hashTime + ")";
-    sf::Text hash("Here are the available research opportunities: ", font, 22);
-    tinyText.setFillColor(sf::Color::White);
-    setText(tinyText, centerX, 180.0f);
+    sf::Text hash(hashText, font, 22);
+    hash.setFillColor(sf::Color::White);
+    hash.setStyle(sf::Text::Bold);
+    setText(hash, centerX/2.0f+centerX, 237.0f);
 
     sf::RectangleShape verticalLine(sf::Vector2f(2.0f, 800.0f));
     verticalLine.setFillColor(sf::Color::White);
@@ -79,6 +81,8 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         resultWindow.draw(tinyText);
         resultWindow.draw(verticalLine);
         resultWindow.draw(horizonLine);
+        resultWindow.draw(nary);
+        resultWindow.draw(hash);
         resultWindow.display();
     }
 }
