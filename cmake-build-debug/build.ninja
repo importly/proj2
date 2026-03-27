@@ -110,7 +110,7 @@ build proj2.exe: CXX_EXECUTABLE_LINKER__proj2_Debug CMakeFiles/proj2.dir/src/Lab
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-d.a  _deps/sfml-build/lib/libsfml-audio-d.a  _deps/sfml-build/lib/libsfml-window-d.a  _deps/sfml-build/lib/libsfml-system-d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\proj2.dir
-  POST_BUILD = cd .
+  POST_BUILD = C:\Windows\system32\cmd.exe /C "cd /D C:\Users\bhavi\CLionProjects\proj2\cmake-build-debug && "C:\Users\bhavi\Downloads\CLion 2025.3.1\bin\cmake\win\x64\bin\cmake.exe" -E copy -t C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug/_deps/sfml-build/lib/sfml-graphics-d-2.dll C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug/_deps/sfml-build/lib/sfml-audio-d-2.dll C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug/_deps/sfml-build/lib/sfml-window-d-2.dll C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug/_deps/sfml-build/lib/sfml-system-d-2.dll"
   PRE_LINK = cd .
   TARGET_FILE = proj2.exe
   TARGET_IMPLIB = libproj2.dll.a
