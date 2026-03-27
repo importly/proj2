@@ -10,6 +10,7 @@
 
 class displayWindow {
 
+    std::vector<std::string> userValues = {};
 
 public:
     void screen();
@@ -18,9 +19,6 @@ public:
     void topicScreen();
     void levelScreen();
     void setText(sf::Text &text, float x, float y);
-
-    std::vector<std::string> userValues = {};
-
 };
 
 

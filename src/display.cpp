@@ -148,7 +148,6 @@ void displayWindow::uniScreen() {
             }
         }
 
-
         uniWindow.clear(sf::Color(76,124,138));
         uniWindow.draw(title);
         uniWindow.draw(tinyText);
@@ -303,17 +302,151 @@ void displayWindow::departmentScreen() {
 
 void displayWindow::topicScreen()
 {
+    //possible vectors of topics
+    std::vector<std::vector<std::string>> topics = {{"Machine Learning", "Distributed Vision", "Computer Vision", "Natural Language Processing", "Human-Computer Interaction"},
+        {"Embedded Systems Design", "Computer Architecture Optimization", "Autonomous Systems", "IoT security", "Microelectronics"},
+        {"Fluid Dynamics", "Thermodynamics and Heat Transfer", "Additive Manufacturing", "Robotics and Mechatronics", "Vibrations and Control Systems"},
+        {"Aerodynamics", "Propulsion Systems", "Flight Dynamics and Control", "Spacecraft Design", "Computational Fluid Dynamics"},
+        {"Signal Processing", "Control Systems", "Microelectronics and VLSI Design", "Wireless Communications", "Power Systems and Smart Grids"},
+        {"Medical Imaging", "Biomaterials Development", "Tissue Engineering", "Neural Engineering", "Bioinstrumentation"},
+        {"Structural Analysis", "Transportation Systems", "Geotechnical Engineering", "Environmental Engineering", "Construction Management"},
+        {"Process Design and Optimization", "Reaction Engineering", "Biochemical Engineering", "Polymer Science", "Separation Processes"},
+        {"Reactor Design", "Radiation Detection and Measurement", "Nuclear Materials", "Nuclear Safety and Risk Analysis", "Fusion Energy"},
+        {"Quantum Mechanics", "Astrophysics", "Particle Physics", "Condensed Matter Physics", "Optics and Photonics"}
+    };
+
+
     sf::RenderWindow topicWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
 
-    while(topicWindow.isOpen()) {
+    sf::Vector2u size = topicWindow.getSize();
+    float centerX = size.x / 2.0f;
+
+    float btnWidth = 600.0f;
+    float btnHeight = 85.0f;
+    float xSpace = 40.0f;
+    float ySpace = 25.0f;
+
+    float buttonGridWidth = (2 * btnWidth) + xSpace;
+    float xStart = centerX - (buttonGridWidth / 2.0f);
+    float yStart = 250.0f;
+
+    sf::Font font;
+    if (!font.loadFromFile("../src/font.ttf")) {
+        std::cerr << "Can't find font file.";
+    }
+
+    sf::Text title("Research Lab Finder", font, 55);
+    title.setFillColor(sf::Color::White);
+    title.setStyle(sf::Text::Bold);
+    setText(title, centerX, 100.0f);
+
+    sf::Text tinyText("Please select a topic to find available research opportunities: ", font, 22);
+    tinyText.setFillColor(sf::Color::White);
+    setText(tinyText, centerX, 180.0f);
+
+    sf::RectangleShape button(sf::Vector2f(btnWidth, btnHeight));
+
+    int index;
+    if (userValues[2] == "Computer Science") {
+        index = 0;
+    }
+    else if (userValues[2] == "Computer Engineering") {
+        index = 1;
+    }
+    else if (userValues[2] == "Mechanical Engineering") {
+        index = 2;
+    }
+    else if (userValues[2] == "Aerospace Engineering") {
+        index = 3;
+    }
+    else if (userValues[2] == "Electrical Engineering") {
+        index = 4;
+    }
+    else if (userValues[2] == "Biomedical Engineering") {
+        index = 5;
+    }
+    else if (userValues[2] == "Civil Engineering") {
+        index = 6;
+    }
+    else if (userValues[2] == "Chemical Engineering") {
+        index = 7;
+    }
+    else if (userValues[2] == "Nuclear Engineering") {
+        index = 8;
+    }
+    else {
+        index = 9;
+    }
+
+    while(topicWindow.isOpen())
+    {
         sf::Event event;
-        while (topicWindow.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
+        while (topicWindow.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+            {
                 topicWindow.close();
             }
+            if(event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    sf::Vector2i position = sf::Mouse::getPosition(topicWindow);
+                    for(int i = 0 ; i < topics.size(); i++)
+                    {
+                        int row = i;
 
+                        float x = centerX - (btnWidth / 2.0f);
+                        float y = yStart + (row * (btnHeight + ySpace));
+                        button.setPosition(x, y);
+                        if (button.getGlobalBounds().contains(static_cast<sf::Vector2f>(position)))
+                        {
+                            userValues.push_back(topics[index][i]);
+                            topicWindow.close();
+                            break;
+                        }
+                    }
+
+                }
+            }
         }
+
         topicWindow.clear(sf::Color(76,124,138));
+        topicWindow.draw(title);
+        topicWindow.draw(tinyText);
+
+        sf::Vector2i everyPosition = sf::Mouse::getPosition(topicWindow);
+
+        //drawing the buttons
+        for(int i = 0; i < topics[index].size(); i++)
+        {
+            //rows of buttons
+            int row = i;
+
+            float x = centerX - (btnWidth / 2.0f);
+            float y = yStart + (row * (btnHeight + ySpace));
+            button.setPosition(x, y);
+
+            if(button.getGlobalBounds().contains(static_cast<sf::Vector2f>(everyPosition)))
+            {
+                //used this color for fill #96B4AA
+                button.setFillColor(sf::Color(150, 180, 170));
+                button.setOutlineThickness(3.0f);
+                button.setOutlineColor(sf::Color::White);
+            }
+            else
+            {
+                button.setFillColor(sf::Color(127, 156, 150));
+                button.setOutlineThickness(0.0f);
+            }
+
+            sf::Text buttonText(topics[index][i], font, 24);
+            buttonText.setFillColor(sf::Color::White);
+            setText(buttonText, x + (btnWidth/ 2.0), y + (btnHeight/ 2.0));
+
+            topicWindow.draw(button);
+            topicWindow.draw(buttonText);
+        }
         topicWindow.display();
     }
 }

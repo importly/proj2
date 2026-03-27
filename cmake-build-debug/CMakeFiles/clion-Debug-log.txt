@@ -15,6 +15,19 @@
 -- Found OpenAL: /Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/OpenAL.framework  
 -- Found VORBIS: /Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/vorbisenc.framework;/Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/vorbisfile.framework;/Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/vorbis.framework;/Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/ogg.framework  
 -- Found FLAC: /Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/FLAC.framework  
--- Configuring done (2.0s)
+-- Configuring done (2.7s)
 -- Generating done (0.0s)
--- Build files have been written to: /Users/krinaparikh/proj2/cmake-build-debug
+CMake Error:
+  Running
+
+   '/Applications/CLion.app/Contents/bin/ninja/mac/ninja' '-C' '/Users/krinaparikh/proj2/cmake-build-debug' '-t' 'recompact'
+
+  failed with:
+
+   ninja: warning: build log version invalid, perhaps due to being too old; starting over
+
+  ninja: error: failed recompaction: No such file or directory
+
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
