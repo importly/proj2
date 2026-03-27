@@ -1,20 +1,37 @@
 #include "n_ary.h"
-
+#include <fstream>
 #include <ranges>
+#include <string>
+#include <sstream>
 
-void n_ary::insert(std::vector<Lab *> dataVector)
+void n_ary::insert()
 {
     //looping over the 100000 data points to create the n-ary tree
-    for(int i = 0; i < dataVector.size(); i++)
+    std::ifstream inputFile("../src/researchData.csv");
+    std::string line;
+
+    while (std::getline(inputFile, line))
     {
+        std::stringstream ss(line);
+
         //storing all the names of the items in the tree
-        std::string collegeName = dataVector[i]->get_college();
-        std::string departmentName = dataVector[i]->get_department();
-        std::string topicName = dataVector[i]->get_topic();
-        std::string levelName = dataVector[i]->get_level();
-        std::string nameName = dataVector[i]->get_name();
-        std::string contactInfoName = dataVector[i]->get_contact_info();
-        std::string synopsisName = dataVector[i]->get_synopsis();
+        std::string temp;
+        std::string collegeName;
+        std::string departmentName;
+        std::string topicName;
+        std::string levelName;
+        std::string nameName;
+        std::string contactInfoName;
+        std::string synopsisName;
+
+        std::getline(ss, temp, ',');
+        std::getline(ss, collegeName, ',');
+        std::getline(ss, departmentName, ',');
+        std::getline(ss, topicName, ',');
+        std::getline(ss, levelName, ',');
+        std::getline(ss, nameName, ',');
+        std::getline(ss, contactInfoName, ',');
+        std::getline(ss, synopsisName, ',');
 
         //calling search to see if the college exists and if it doesn't then it will be nullptr
         Node* college = searchLevel(head, collegeName);

@@ -27,6 +27,7 @@ void result::resultScreen() {
     setText(tinyText, centerX, 180.0f);
 
     while(resultWindow.isOpen()) {
+
         sf::Event event;
         while (resultWindow.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {

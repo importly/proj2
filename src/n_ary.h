@@ -21,7 +21,7 @@ public:
 
     void deleteHelper(Node* node);
     Node* searchLevel(Node* currentNode, std::string key);
-    void insert(std::vector<Lab *> dataVector);
+    void insert();
     std::vector<std::vector<std::string>> functionality(std::vector<std::string>& userInput);
 
 };

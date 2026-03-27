@@ -1,6 +1,5 @@
 #ifndef PROJ2_DISPLAY_H
 #define PROJ2_DISPLAY_H
-
 #include <iostream>
 #include <stack>
 #include <vector>
@@ -20,6 +19,8 @@ public:
     void topicScreen();
     void levelScreen();
     void setText(sf::Text &text, float x, float y);
+    std::vector<std::string> getUserValues();
+
 };
 
 
