@@ -59,6 +59,20 @@ void displayWindow::screen() {
             }
         }
 
+        sf::Vector2i everyPosition = sf::Mouse::getPosition(window);
+        if(button.getGlobalBounds().contains(static_cast<sf::Vector2f>(everyPosition)))
+        {
+            //used this color for fill #96B4AA
+            button.setFillColor(sf::Color(150, 180, 170));
+            button.setOutlineThickness(3.0f);
+            button.setOutlineColor(sf::Color::White);
+        }
+        else
+        {
+            button.setFillColor(sf::Color(127, 156, 150));
+            button.setOutlineThickness(0.0f);
+        }
+
         window.clear(sf::Color(76,124,138));
         window.draw(title);
         window.draw(button);
@@ -138,6 +152,9 @@ void displayWindow::uniScreen() {
         uniWindow.clear(sf::Color(76,124,138));
         uniWindow.draw(title);
         uniWindow.draw(tinyText);
+
+        sf::Vector2i everyPosition = sf::Mouse::getPosition(uniWindow);
+
         //drawing the buttons
         for(int i = 0; i < university.size(); i++)
         {
@@ -148,8 +165,19 @@ void displayWindow::uniScreen() {
             float x = xStart + (col * (btnWidth + xSpace));
             float y = yStart + (row * (btnHeight + ySpace));
             button.setPosition(x, y);
-            button.setFillColor(sf::Color(127, 156, 150));
 
+            if(button.getGlobalBounds().contains(static_cast<sf::Vector2f>(everyPosition)))
+            {
+                //used this color for fill #96B4AA
+                button.setFillColor(sf::Color(150, 180, 170));
+                button.setOutlineThickness(3.0f);
+                button.setOutlineColor(sf::Color::White);
+            }
+            else
+            {
+                button.setFillColor(sf::Color(127, 156, 150));
+                button.setOutlineThickness(0.0f);
+            }
             sf::Text buttonText(university[i], font, 24);
             buttonText.setFillColor(sf::Color::White);
             setText(buttonText, x + (btnWidth/ 2.0), y + (btnHeight/ 2.0));
@@ -233,6 +261,10 @@ void displayWindow::departmentScreen() {
         deptartmentWindow.clear(sf::Color(76,124,138));
         deptartmentWindow.draw(title);
         deptartmentWindow.draw(tinyText);
+
+        sf::Vector2i everyPosition = sf::Mouse::getPosition(deptartmentWindow);
+
+
         //drawing the buttons
         for(int i = 0; i < department.size(); i++)
         {
@@ -243,7 +275,19 @@ void displayWindow::departmentScreen() {
             float x = xStart + (col * (btnWidth + xSpace));
             float y = yStart + (row * (btnHeight + ySpace));
             button.setPosition(x, y);
-            button.setFillColor(sf::Color(127, 156, 150));
+
+            if(button.getGlobalBounds().contains(static_cast<sf::Vector2f>(everyPosition)))
+            {
+                //used this color for fill #96B4AA
+                button.setFillColor(sf::Color(150, 180, 170));
+                button.setOutlineThickness(3.0f);
+                button.setOutlineColor(sf::Color::White);
+            }
+            else
+            {
+                button.setFillColor(sf::Color(127, 156, 150));
+                button.setOutlineThickness(0.0f);
+            }
 
             sf::Text buttonText(department[i], font, 24);
             buttonText.setFillColor(sf::Color::White);
