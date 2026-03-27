@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_proj2: phony || .
 build CMakeFiles/proj2.dir/src/hashtable.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug C$:/Users/bhavi/CLionProjects/proj2/src/hashtable.cpp || cmake_object_order_depends_target_proj2
   CONFIG = Debug
   DEP_FILE = CMakeFiles\proj2.dir\src\hashtable.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/bhavi/CLionProjects/proj2/src
   OBJECT_DIR = CMakeFiles\proj2.dir
   OBJECT_FILE_DIR = CMakeFiles\proj2.dir\src
@@ -60,7 +60,7 @@ build CMakeFiles/proj2.dir/src/hashtable.cpp.obj: CXX_COMPILER__proj2_unscanned_
 build CMakeFiles/proj2.dir/src/Lab.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug C$:/Users/bhavi/CLionProjects/proj2/src/Lab.cpp || cmake_object_order_depends_target_proj2
   CONFIG = Debug
   DEP_FILE = CMakeFiles\proj2.dir\src\Lab.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/bhavi/CLionProjects/proj2/src
   OBJECT_DIR = CMakeFiles\proj2.dir
   OBJECT_FILE_DIR = CMakeFiles\proj2.dir\src
@@ -68,7 +68,7 @@ build CMakeFiles/proj2.dir/src/Lab.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug 
 build CMakeFiles/proj2.dir/src/main.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug C$:/Users/bhavi/CLionProjects/proj2/src/main.cpp || cmake_object_order_depends_target_proj2
   CONFIG = Debug
   DEP_FILE = CMakeFiles\proj2.dir\src\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/bhavi/CLionProjects/proj2/src
   OBJECT_DIR = CMakeFiles\proj2.dir
   OBJECT_FILE_DIR = CMakeFiles\proj2.dir\src
@@ -76,7 +76,7 @@ build CMakeFiles/proj2.dir/src/main.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug
 build CMakeFiles/proj2.dir/src/n_ary.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug C$:/Users/bhavi/CLionProjects/proj2/src/n_ary.cpp || cmake_object_order_depends_target_proj2
   CONFIG = Debug
   DEP_FILE = CMakeFiles\proj2.dir\src\n_ary.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/bhavi/CLionProjects/proj2/src
   OBJECT_DIR = CMakeFiles\proj2.dir
   OBJECT_FILE_DIR = CMakeFiles\proj2.dir\src
@@ -84,7 +84,7 @@ build CMakeFiles/proj2.dir/src/n_ary.cpp.obj: CXX_COMPILER__proj2_unscanned_Debu
 build CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj: CXX_COMPILER__proj2_unscanned_Debug C$:/Users/bhavi/CLionProjects/proj2/src/randomGeneratedData.cpp || cmake_object_order_depends_target_proj2
   CONFIG = Debug
   DEP_FILE = CMakeFiles\proj2.dir\src\randomGeneratedData.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/bhavi/CLionProjects/proj2/src
   OBJECT_DIR = CMakeFiles\proj2.dir
   OBJECT_FILE_DIR = CMakeFiles\proj2.dir\src
