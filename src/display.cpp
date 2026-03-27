@@ -350,10 +350,9 @@ void displayWindow::topicScreen()
                     sf::Vector2i position = sf::Mouse::getPosition(topicWindow);
                     for(int i = 0 ; i < topics.size(); i++)
                     {
-                        int row = i / 2;
-                        int col = i % 2;
+                        int row = i;
 
-                        float x = xStart + (col * (btnWidth + xSpace));
+                        float x = centerX - (btnWidth / 2.0f);
                         float y = yStart + (row * (btnHeight + ySpace));
                         button.setPosition(x, y);
                         if (button.getGlobalBounds().contains(static_cast<sf::Vector2f>(position)))
@@ -373,17 +372,15 @@ void displayWindow::topicScreen()
         topicWindow.draw(tinyText);
 
         //drawing the buttons
-        for(int i = 0; i < topics.size(); i++)
+        for(int i = 0; i < topics[index].size(); i++)
         {
-            //column and rows of buttons
-            int row = i / 2;
-            int col = i % 2;
+            //rows of buttons
+            int row = i;
 
-            float x = xStart + (col * (btnWidth + xSpace));
+            float x = centerX - (btnWidth / 2.0f);
             float y = yStart + (row * (btnHeight + ySpace));
             button.setPosition(x, y);
             button.setFillColor(sf::Color(127, 156, 150));
-
 
             sf::Text buttonText(topics[index][i], font, 24);
             buttonText.setFillColor(sf::Color::White);
