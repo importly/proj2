@@ -403,6 +403,7 @@ void displayWindow::topicScreen()
                         {
                             userValues.push_back(topics[index][i]);
                             topicWindow.close();
+                            levelScreen();
                             break;
                         }
                     }
