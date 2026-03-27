@@ -67,6 +67,20 @@ void displayWindow::screen() {
 
 void displayWindow::uniScreen() {
     sf::RenderWindow uniWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");
+    sf::Vector2u size = uniWindow.getSize();
+    float centerX = size.x / 2.0f;
+    float centerY = size.y / 2.0f;
+
+    sf::Font font;
+    if (!font.loadFromFile("../src/font.ttf")) {
+        std::cerr << "Can't find font file.";
+    }
+    sf::Text title("Research Lab Finder", font, 50);
+    title.setFillColor(sf::Color::White);
+    title.setStyle(sf::Text::Bold);
+    setText(title, centerX, centerY);
+
+    sf::Text tinyText("Please select a university to find available research oppurtunities: ", font, 15);
     while(uniWindow.isOpen())
     {
         sf::Event event;
