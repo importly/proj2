@@ -1,13 +1,15 @@
 # ninja log v6
 53	1647	7962565833859198	CMakeFiles/proj2.dir/src/main.cpp.obj	5ac967633ad600f1
-48	1774	7962565833809263	CMakeFiles/proj2.dir/src/Lab.cpp.obj	e641004923fa3319
-1856	2665	7962587428377253	proj2.exe	a785777b88616d37
-57	1845	7962565833909231	CMakeFiles/proj2.dir/src/n_ary.cpp.obj	7fb898c1f2b497b8
-22	1141	7962714379538114	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj	44dad9056c0e3cf9
-4	1883	7962565833379200	CMakeFiles/proj2.dir/src/hashtable.cpp.obj	b50687f315abd499
-5	290	7962727036355987	build.ninja	b4919f4d483c2bbd
-5	290	7962727036216361	C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug/cmake_install.cmake	b4919f4d483c2bbd
 17	1156	7962727041723436	CMakeFiles/proj2.dir/src/Lab.cpp.obj	d7dc2217c7af3f1d
-9	1609	7962727041633452	CMakeFiles/proj2.dir/src/hashtable.cpp.obj	b818d0926bb0d058
+1856	2665	7962587428377253	proj2.exe	a785777b88616d37
 26	1729	7962727041810890	CMakeFiles/proj2.dir/src/n_ary.cpp.obj	28c2f019daa0350e
 30	2916	7962727041850845	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj	3dacb047278467b5
+9	1609	7962727041633452	CMakeFiles/proj2.dir/src/hashtable.cpp.obj	b818d0926bb0d058
+5	290	7962733149140771	build.ninja	b4919f4d483c2bbd
+5	290	7962733148989275	C:/Users/bhavi/CLionProjects/proj2/cmake-build-debug/cmake_install.cmake	b4919f4d483c2bbd
+22	832	7962733352577003	CMakeFiles/proj2.dir/src/Lab.cpp.obj	d7dc2217c7af3f1d
+11	963	7962733352464393	CMakeFiles/proj2.dir/src/hashtable.cpp.obj	b818d0926bb0d058
+41	1016	7962733352763024	CMakeFiles/proj2.dir/src/n_ary.cpp.obj	28c2f019daa0350e
+50	1024	7962733352843931	CMakeFiles/proj2.dir/src/randomGeneratedData.cpp.obj	3dacb047278467b5
+31	9138	7962733352656984	CMakeFiles/proj2.dir/src/main.cpp.obj	90a6d90ad1ac6c95
+7	12253	7962733882355012	CMakeFiles/proj2.dir/src/main.cpp.obj	90a6d90ad1ac6c95
