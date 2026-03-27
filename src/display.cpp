@@ -1,6 +1,6 @@
 #include "display.h"
 #include <vector>
-
+#include <SFML/Graphics.hpp>
 std::vector<std::string> userValues = {};
 void displayWindow::setText(sf::Text &text, float x, float y)
 {
