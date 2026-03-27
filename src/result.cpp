@@ -2,8 +2,7 @@
 #include "display.h"
 #include <chrono>
 
-void result::setText(sf::Text &text, float x, float y)
-{
+void result::setText(sf::Text &text, float x, float y) {
     sf::FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top + textRect.height/2.0f);
     text.setPosition(sf::Vector2f(x, y));
@@ -25,6 +24,7 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     std::chrono::duration<double> elapsed_seconds = end - start;
     naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
 
+    std::string hashTime;
 
     //display
     sf::RenderWindow resultWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");

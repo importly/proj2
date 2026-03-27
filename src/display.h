@@ -22,6 +22,4 @@ public:
 
 };
 
-
-
 #endif //PROJ2_DISPLAY_H

@@ -41,7 +41,7 @@ void n_ary::insert()
         {
             college = new n_ary::Node();
             college->value = collegeName;
-            head->children.push_back(college);
+            head->children.push_back(std::move(college));
         }
 
         Node* department = searchLevel(college, departmentName);
@@ -49,7 +49,7 @@ void n_ary::insert()
         {
             department = new n_ary::Node();
             department->value = departmentName;
-            college->children.push_back(department);
+            college->children.push_back(std::move(department));
         }
 
         Node* topic = searchLevel(department, topicName);
@@ -57,7 +57,7 @@ void n_ary::insert()
         {
             topic = new n_ary::Node();
             topic->value = topicName;
-            department->children.push_back(topic);
+            department->children.push_back(std::move(topic));
         }
 
         Node* level = searchLevel(topic, levelName);
@@ -65,15 +65,14 @@ void n_ary::insert()
         {
             level = new n_ary::Node();
             level->value = levelName;
-            topic->children.push_back(level);
+            topic->children.push_back(std::move(level));
         }
-        Node* info = new n_ary::Node();
 
+        Node* info = new n_ary::Node();
         info->researchInfo.push_back(nameName);
         info->researchInfo.push_back(contactInfoName);
         info->researchInfo.push_back(synopsisName);
-        level->children.push_back(info);
-
+        level->children.push_back(std::move(info));
 
         /*
         Node* name = searchLevel(level, nameName);
