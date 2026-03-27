@@ -5,6 +5,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "randomGeneratedData.h"
+#include "result.h"
 
 
 class displayWindow {
