@@ -126,11 +126,15 @@ std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::stri
     for (int i = 0; i < userInput.size(); i++) {
         temp = searchLevel(temp, userInput[i]);
         if (temp == nullptr) {
+            std::cerr << "Error in functionality" << std::endl;
             return {};
         }
     }
 
     for (int i = 0; i < temp->children.size(); i++) {
+        for (int j = 0; j < temp->children[i]->researchInfo.size(); j++) {
+            std::cout << temp->children[i]->researchInfo[j] << std::endl;
+        }
         allInfo.push_back(temp->children[i]->researchInfo);
     }
 
