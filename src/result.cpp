@@ -63,19 +63,6 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     hash.setStyle(sf::Text::Bold);
     setText(hash, centerX/2.0f+centerX, 237.0f);
 
-    sf::RectangleShape verticalLine(sf::Vector2f(2.0f, 800.0f));
-    verticalLine.setFillColor(sf::Color::White);
-    verticalLine.setOrigin(1.0f, 0.0f);
-    verticalLine.setPosition(centerX, 250.0f);
-
-    sf::RectangleShape horizonLine(sf::Vector2f(size.x, 2.0f));
-    horizonLine.setFillColor(sf::Color::White);
-    horizonLine.setOrigin(0, 1.0f);
-    horizonLine.setPosition(0, 250.0f);
-
-    //got this to figure out mouse scrolling https://www.google.com/search?q=how+to+allow+your+window+to+scroll+in+sfml&sca_esv=9b7071d2b58e06a1&biw=1440&bih=778&sxsrf=ANbL-n73WtbOmzni1gRsa5Me95nXP66WdQ%3A1774652516594&ei=ZAzHaYeCJI2bptQP0M6q6Qo&ved=0ahUKEwiHxOfml8GTAxWNjYkEHVCnKq0Q4dUDCBE&uact=5&oq=how+to+allow+your+window+to+scroll+in+sfml&gs_lp=Egxnd3Mtd2l6LXNlcnAiKmhvdyB0byBhbGxvdyB5b3VyIHdpbmRvdyB0byBzY3JvbGwgaW4gc2ZtbDIFECEYoAEyBRAhGKABMgUQIRigATIFECEYnwVI92FQ6wVYwmBwDHgAkAEAmAG7AaAB6SqqAQUyMi4zMLgBA8gBAPgBAZgCPKACzCzCAgQQIxgnwgILEAAYgAQYkQIYigXCAgoQABiABBhDGIoFwgIFEAAYgATCAggQABiABBixA8ICBxAAGIAEGA3CAgYQABgWGB7CAggQABgWGAoYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAggQABiiBBiJBcICBRAhGKsCwgIHECEYoAEYCsICBxAhGAoYqwKYAwDiAwUSATEgQIgGAZIHBTI3LjMzoAeGugOyBwUxOC4zM7gHoyzCBwcwLjIyLjM4yAfLAYAIAA&sclient=gws-wiz-serp
-    sf::View scrollView = resultWindow.getDefaultView();
-
     float yStart = 260.0f;
     std::vector<sf::Text> naryOutput;
     for (int i = 0; i < naryResults.size(); i++) {
@@ -102,7 +89,21 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         yStart += 50;
     }
 
+    sf::RectangleShape verticalLine(sf::Vector2f(2.0f, ((naryOutput[naryOutput.size()-1].getPosition().y + naryOutput[naryOutput.size()-1].getGlobalBounds().height + 10.0f)-250.0f)));
+    verticalLine.setFillColor(sf::Color::White);
+    verticalLine.setOrigin(1.0f, 0.0f);
+    verticalLine.setPosition(centerX, 250.0f);
+
+    sf::RectangleShape horizonLine(sf::Vector2f(size.x, 2.0f));
+    horizonLine.setFillColor(sf::Color::White);
+    horizonLine.setOrigin(0, 1.0f);
+    horizonLine.setPosition(0, 250.0f);
+
+    //got this to figure out mouse scrolling https://www.google.com/search?q=how+to+allow+your+window+to+scroll+in+sfml&sca_esv=9b7071d2b58e06a1&biw=1440&bih=778&sxsrf=ANbL-n73WtbOmzni1gRsa5Me95nXP66WdQ%3A1774652516594&ei=ZAzHaYeCJI2bptQP0M6q6Qo&ved=0ahUKEwiHxOfml8GTAxWNjYkEHVCnKq0Q4dUDCBE&uact=5&oq=how+to+allow+your+window+to+scroll+in+sfml&gs_lp=Egxnd3Mtd2l6LXNlcnAiKmhvdyB0byBhbGxvdyB5b3VyIHdpbmRvdyB0byBzY3JvbGwgaW4gc2ZtbDIFECEYoAEyBRAhGKABMgUQIRigATIFECEYnwVI92FQ6wVYwmBwDHgAkAEAmAG7AaAB6SqqAQUyMi4zMLgBA8gBAPgBAZgCPKACzCzCAgQQIxgnwgILEAAYgAQYkQIYigXCAgoQABiABBhDGIoFwgIFEAAYgATCAggQABiABBixA8ICBxAAGIAEGA3CAgYQABgWGB7CAggQABgWGAoYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAggQABiiBBiJBcICBRAhGKsCwgIHECEYoAEYCsICBxAhGAoYqwKYAwDiAwUSATEgQIgGAZIHBTI3LjMzoAeGugOyBwUxOC4zM7gHoyzCBwcwLjIyLjM4yAfLAYAIAA&sclient=gws-wiz-serp
+    sf::View scrollView = resultWindow.getDefaultView();
     resultWindow.setView(resultWindow.getDefaultView());
+
+
 
     while(resultWindow.isOpen()) {
 
@@ -114,6 +115,13 @@ void result::resultScreen(std::vector<std::string>& userInput) {
             }
             if (event.type == sf::Event::MouseWheelScrolled) {
                 scrollView.move(0, -event.mouseWheelScroll.delta * 30.0f);
+
+                if ((scrollView.getCenter().y - (scrollView.getSize().y/2.0f)) < 0) {
+                    scrollView.setCenter(scrollView.getCenter().x, scrollView.getSize().y/2.0f);
+                }
+                else if ((scrollView.getCenter().y + (scrollView.getSize().y/2.0f)) > (naryOutput[naryOutput.size()-1].getPosition().y + naryOutput[naryOutput.size()-1].getGlobalBounds().height + 10.0f)) {
+                    scrollView.setCenter(scrollView.getCenter().x, ((naryOutput[naryOutput.size()-1].getPosition().y + naryOutput[naryOutput.size()-1].getGlobalBounds().height + 10.0f) - scrollView.getSize().y/2.0f));
+                }
             }
         }
 
