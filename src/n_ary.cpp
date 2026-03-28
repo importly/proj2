@@ -4,7 +4,6 @@
 #include <string>
 #include <sstream>
 
-
 void n_ary::insert()
 {
     //looping over the 100000 data points to create the n-ary tree
@@ -127,6 +126,7 @@ std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::stri
     for (int i = 0; i < userInput.size(); i++) {
         temp = searchLevel(temp, userInput[i]);
         if (temp == nullptr) {
+            std::cerr << "Error in functionality" << std::endl;
             return {};
         }
     }

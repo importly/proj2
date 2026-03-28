@@ -20,6 +20,12 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     tree.insert();
     naryResults = tree.functionality(userInput);
 
+    for (int i = 0; i < naryResults.size(); i++) {
+        for (int j = 0; j < naryResults[i].size(); j++) {
+            std::cout << naryResults[i][j] << std::endl;
+        }
+    }
+
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
@@ -75,8 +81,17 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     for (int i = 0; i < naryResults.size(); i++) {
 
         for (int j = 0; j < naryResults[i].size(); j++) {
-            sf::Text researchInfo(naryResults[i][j], font, 22);
+
+            sf::Text test("", font, 22);
+            std::string temp = wrapText(test, naryResults[i][j], centerX - 20.0f);
+
+            sf::Text researchInfo(temp, font, 22);
             researchInfo.setFillColor(sf::Color::White);
+
+            if (j % 3 == 0) {
+                researchInfo.setStyle(sf::Text::Bold);
+            }
+
             researchInfo.setPosition(20.0f, yStart);
 
             naryOutput.emplace_back(researchInfo);
@@ -86,6 +101,8 @@ void result::resultScreen(std::vector<std::string>& userInput) {
 
         yStart += 50;
     }
+
+    resultWindow.setView(resultWindow.getDefaultView());
 
     while(resultWindow.isOpen()) {
 
@@ -101,7 +118,7 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         }
 
         resultWindow.clear(sf::Color(76,124,138));
-        resultWindow.setView(resultWindow.getDefaultView());
+        resultWindow.setView(scrollView);
 
         for (int i = 0; i < naryOutput.size(); i++) {
             resultWindow.draw(naryOutput[i]);
@@ -113,9 +130,28 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         resultWindow.draw(horizonLine);
         resultWindow.draw(nary);
         resultWindow.draw(hash);
-
-        resultWindow.setView(scrollView);
-
         resultWindow.display();
     }
+}
+
+std::string result::wrapText(sf::Text& researchInfo, std::string outputText, float limit) {
+    std::string wrappedText = "";
+    std::string currentLine = "";
+    std::stringstream ss(outputText);
+    std::string word;
+
+    while (ss >> word) {
+        std::string testLine = currentLine + word + " ";
+        researchInfo.setString(testLine);
+
+        if (researchInfo.getLocalBounds().width > limit) {
+            wrappedText += currentLine + "\n";
+            currentLine = word + " ";
+        }
+        else {
+            currentLine = testLine;
+        }
+    }
+
+    return wrappedText + currentLine;
 }
