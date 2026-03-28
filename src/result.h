@@ -2,6 +2,8 @@
 #define PROJ2_RESULT_H
 #include <SFML/Graphics.hpp>
 #include "n_ary.h"
+#include "hashtable.h"
+#include "Lab.h"
 
 class result {
 public:

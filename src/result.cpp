@@ -46,17 +46,58 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     }
 
     naryResults = tree.functionality(userInput);
-    for (int i = 0; i < naryResults.size(); i++) {
-        for (int j = 0; j < naryResults[i].size(); j++) {
-            std::cout << naryResults[i][j] << std::endl;
-        }
-    }
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
     naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
 
-    std::string hashTime = " ";
+
+    auto start1 = std::chrono::high_resolution_clock::now();
+    std::ifstream iFile("../src/researchData.csv");
+    std::string line1;
+    hashtable h1;
+    while (std::getline(inputFile, line)) {
+        std::stringstream ss(line);
+
+        //storing all the names of the items in the tree
+        std::string temp;
+        std::string collegeName;
+        std::string departmentName;
+        std::string topicName;
+        std::string levelName;
+        std::string nameName;
+        std::string contactInfoName;
+        std::string synopsisName;
+
+        std::getline(ss, temp, ',');
+        std::getline(ss, collegeName, ',');
+        std::getline(ss, departmentName, ',');
+        std::getline(ss, topicName, ',');
+        std::getline(ss, levelName, ',');
+        std::getline(ss, nameName, ',');
+        std::getline(ss, contactInfoName, ',');
+        std::getline(ss, synopsisName, ',');
+
+        Lab l1(collegeName, departmentName, topicName, levelName, nameName, contactInfoName, synopsisName);
+        std::string key = l1.get_search_string();
+
+        h1.push_back(key, l1);
+    }
+
+    std::string searchKey = "";
+    for(int i = 0; i < userInput.size(); i++)
+    {
+        searchKey += userInput[i];
+        if(i < userInput.size() - 1)
+        {
+            searchKey += "_";
+        }
+    }
+    std::vector<Lab> hashResults = h1.search(searchKey);
+    auto end1 = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds1 = end1 - start1;
+    std::string hashTime = std::to_string(elapsed_seconds1.count() * 1000) + " ms";
+
 
     //display
     sf::RenderWindow resultWindow(sf::VideoMode(1600, 1200), "Research Lab Finder");

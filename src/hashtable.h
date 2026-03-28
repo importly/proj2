@@ -12,6 +12,7 @@
 
 
 class hashtable {
+public:
     std::vector<std::vector<std::vector<Lab>>> table;
     //  ^ hashed ^ handle collisions ^ vec of labs
     size_t num_labs = 0;
