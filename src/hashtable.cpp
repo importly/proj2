@@ -11,7 +11,7 @@ bool hashtable::push_back(const std::string &key, const Lab &lab) {
         new_table.resize(table.size() * 2);
         for (auto bucket = table.begin();bucket != table.end();++bucket) {
             for (auto lab_group = bucket->begin(); lab_group != bucket->end(); ++lab_group) {
-                size_t new_index = lab_group->at(0).hash() % table.size() * 2;
+                size_t new_index = lab_group->at(0).hash() % (table.size() * 2);
                 new_table[new_index].push_back(std::move(*lab_group));
             }
         }
@@ -24,7 +24,7 @@ bool hashtable::push_back(const std::string &key, const Lab &lab) {
     for (std::vector<Lab> &group: possible_labs_vec) {
         if (key==group[0].get_search_string()) {
             for (Lab &in_lab: group) {
-                if ( in_lab.get_name() == lab.get_name()) {
+                if ( in_lab.get_contact_info() == lab.get_contact_info()) {
                     return false;
                 }
             }

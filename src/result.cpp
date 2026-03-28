@@ -56,8 +56,8 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     std::ifstream iFile("../src/researchData.csv");
     std::string line1;
     hashtable h1;
-    while (std::getline(inputFile, line)) {
-        std::stringstream ss(line);
+    while (std::getline(iFile, line1)) {
+        std::stringstream ss(line1);
 
         //storing all the names of the items in the tree
         std::string temp;
@@ -156,6 +156,36 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         yStart += 50;
     }
 
+
+    float yStart1 = 260.0f;
+    std::vector<sf::Text> hashOutput;
+    for (int i = 0; i < hashResults.size(); i++) {
+
+        Lab& l2 = hashResults[i];
+        std::string tempArr[3] = {l2.get_name(), l2.get_contact_info(), l2.get_synopsis()};
+        for(int j = 0; j < 3; j++)
+        {
+
+            sf::Text test("", font, 22);
+            std::string temp = wrapText(test, tempArr[j], centerX - 40.0f);
+
+            sf::Text researchInfo(temp, font, 22);
+            researchInfo.setFillColor(sf::Color::White);
+
+            if (j % 3 == 0) {
+                researchInfo.setStyle(sf::Text::Bold);
+            }
+
+            researchInfo.setPosition(centerX + 20.0f, yStart1);
+
+            hashOutput.emplace_back(researchInfo);
+
+            yStart1 += 30;
+        }
+
+        yStart1 += 50;
+    }
+
     sf::RectangleShape verticalLine(sf::Vector2f(2.0f, ((naryOutput[naryOutput.size()-1].getPosition().y + naryOutput[naryOutput.size()-1].getGlobalBounds().height + 10.0f)-250.0f)));
     verticalLine.setFillColor(sf::Color::White);
     verticalLine.setOrigin(1.0f, 0.0f);
@@ -197,6 +227,10 @@ void result::resultScreen(std::vector<std::string>& userInput) {
 
         for (int i = 0; i < naryOutput.size(); i++) {
             resultWindow.draw(naryOutput[i]);
+        }
+
+        for (int i = 0; i < hashOutput.size(); i++) {
+            resultWindow.draw(hashOutput[i]);
         }
 
         resultWindow.draw(title);
