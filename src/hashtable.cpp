@@ -5,7 +5,7 @@
 #include "hashtable.h"
 #include <vector>
 bool hashtable::push_back(const std::string &key, const Lab &lab) {
-    if (static_cast<double>(num_labs)/static_cast<double>(table.size()) > 0.8) { // resizing and rehashing entire table
+    if (static_cast<double>(num_keys)/static_cast<double>(table.size()) > 0.8) { // resizing and rehashing entire table
         // if more than 0.8 load factor.
         std::vector<std::vector<std::vector<Lab>>> new_table;
         new_table.resize(table.size() * 2);
@@ -19,33 +19,27 @@ bool hashtable::push_back(const std::string &key, const Lab &lab) {
         table = std::move(new_table);
 
     }
-    std::vector<std::vector<Lab>>& possible_labs_vec = table[lab.hash()%table.capacity()];
+    std::vector<std::vector<Lab>>& possible_labs_vec = table[lab.hash()%table.size()];
     bool found = false;
     for (std::vector<Lab> &group: possible_labs_vec) {
         if (key==group[0].get_search_string()) {
-            for (Lab &in_lab: group) {
-                if ( in_lab.get_contact_info() == lab.get_contact_info()) {
-                    return false;
-                }
-            }
             group.push_back(lab);
             found = true;
-            num_labs++;
             break;
         }
     }
     if (!found) {
         possible_labs_vec.push_back({lab});
-        num_labs++;
+        num_keys++;
     }
     return true;
 }
 
-std::vector<Lab> hashtable::search(std::string key) {
-    std::vector<std::vector<Lab> > possible_labs_vec = table[Lab::string_hash(key) % table.capacity()];
-    for (std::vector<Lab> i:possible_labs_vec) {
-        if (i[0].get_search_string() == key) {
-            return i;
+std::vector<Lab> hashtable::search(const std::string &key) {
+    const std::vector<std::vector<Lab>>& possible_labs_vec = table[Lab::string_hash(key)%table.size()];
+    for (const std::vector<Lab>& group: possible_labs_vec) {
+        if (group[0].get_search_string() == key) {
+            return group;
         }
     }
     return {};

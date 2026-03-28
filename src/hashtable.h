@@ -15,14 +15,14 @@ class hashtable {
 public:
     std::vector<std::vector<std::vector<Lab>>> table;
     //  ^ hashed ^ handle collisions ^ vec of labs
-    size_t num_labs = 0;
+    size_t num_keys = 0;
     hashtable() { // had issues with / by 0 check, need initializations.
-        table.resize(7);
+        table.resize(10000);
     }
 
     bool push_back(const std::string& key, const Lab& lab);
 
-    std::vector<Lab> search(std::string key);
+    std::vector<Lab> search(const std::string &key);
 };
 
 

@@ -26,21 +26,21 @@ public:
     Lab(const std::string &college, const std::string &department, const std::string &topic, const std::string &level, const std::string &name,
     const std::string &contact_info, const std::string &synopsis);
 
-    std::string get_search_string() const;
+    const std::string& get_search_string() const;
 
-    std::string get_college() const;
+    const std::string& get_college() const;
 
-    std::string get_department() const;
+    const std::string& get_department() const;
 
-    std::string get_topic() const;
+    const std::string& get_topic() const;
 
-    std::string get_level() const;
+    const std::string& get_level() const;
 
-    std::string get_contact_info() const;
+    const std::string& get_contact_info() const;
 
-    std::string get_synopsis() const;
+    const std::string& get_synopsis() const;
 
-    std::string get_name() const;
+    const std::string& get_name() const;
 
     uint64_t hash() const;
 

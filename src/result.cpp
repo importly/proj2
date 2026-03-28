@@ -15,7 +15,6 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     std::string naryTime;
     std::vector<std::vector<std::string>> naryResults;
 
-    auto start = std::chrono::high_resolution_clock::now();
 //looping over the 100000 data points to create the n-ary tree
     std::ifstream inputFile("../src/researchData.csv");
     std::string line;
@@ -45,17 +44,9 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         tree.insert(collegeName, departmentName, topicName, levelName, nameName, contactInfoName, synopsisName);
     }
 
-    naryResults = tree.functionality(userInput);
-
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed_seconds = end - start;
-    naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
-
-
-    auto start1 = std::chrono::high_resolution_clock::now();
     std::ifstream iFile("../src/researchData.csv");
     std::string line1;
-    hashtable h1;
+    hashtable hashtable;
     while (std::getline(iFile, line1)) {
         std::stringstream ss(line1);
 
@@ -81,7 +72,7 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         Lab l1(collegeName, departmentName, topicName, levelName, nameName, contactInfoName, synopsisName);
         std::string key = l1.get_search_string();
 
-        h1.push_back(key, l1);
+        hashtable.push_back(key, l1);
     }
 
     std::string searchKey = "";
@@ -93,9 +84,17 @@ void result::resultScreen(std::vector<std::string>& userInput) {
             searchKey += "_";
         }
     }
-    std::vector<Lab> hashResults = h1.search(searchKey);
-    auto end1 = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed_seconds1 = end1 - start1;
+
+    auto start_tree = std::chrono::high_resolution_clock::now();
+    naryResults = tree.search(userInput);
+    auto end_tree = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end_tree - start_tree;
+    naryTime = std::to_string(elapsed_seconds.count() * 1000) + " ms";
+
+    auto start_hash = std::chrono::high_resolution_clock::now();
+    std::vector<Lab> hashResults = hashtable.search(searchKey);
+    auto end_hash = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds1 = end_hash - start_hash;
     std::string hashTime = std::to_string(elapsed_seconds1.count() * 1000) + " ms";
 
 
@@ -118,13 +117,13 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     tinyText.setFillColor(sf::Color::White);
     setText(tinyText, centerX, 180.0f);
 
-    std::string naryText = "N-Ary Tree (Time Taken: " + naryTime + ")";
+    std::string naryText = "N-Ary Tree (Time Taken to Search: " + naryTime + ")";
     sf::Text nary(naryText, font, 22);
     nary.setFillColor(sf::Color::White);
     nary.setStyle(sf::Text::Bold);
     setText(nary, centerX/2.0f, 237.0f);
 
-    std::string hashText = "Hash Table (Time Taken: " + hashTime + ")";
+    std::string hashText = "Hash Table (Time Taken to Search: " + hashTime + ")";
     sf::Text hash(hashText, font, 22);
     hash.setFillColor(sf::Color::White);
     hash.setStyle(sf::Text::Bold);

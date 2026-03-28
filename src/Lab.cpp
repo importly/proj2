@@ -16,35 +16,35 @@ synopsis(synopsis){
     search_string = college + "_" + department + "_" + topic + "_" + level;
 }
 
-std::string Lab::get_search_string() const {
+const std::string& Lab::get_search_string() const {
     return search_string;
 }
 
-std::string Lab::get_college() const {
+const std::string& Lab::get_college() const {
     return college;
 }
 
-std::string Lab::get_department() const{
+const std::string& Lab::get_department() const{
     return department;
 }
 
-std::string Lab::get_topic() const{
+const std::string& Lab::get_topic() const{
     return topic;
 }
 
-std::string Lab::get_level() const{
+const std::string& Lab::get_level() const{
     return level;
 }
 
-std::string Lab::get_contact_info() const{
+const std::string& Lab::get_contact_info() const{
     return contact_info;
 }
 
-std::string Lab::get_synopsis() const{
+const std::string& Lab::get_synopsis() const{
     return synopsis;
 }
 
-std::string Lab::get_name() const {
+const std::string& Lab::get_name() const {
     return name;
 }
 
