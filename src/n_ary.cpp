@@ -4,35 +4,8 @@
 #include <string>
 #include <sstream>
 
-void n_ary::insert()
+void n_ary::insert(std::string collegeName, std::string departmentName, std::string topicName, std::string levelName, std::string nameName, std::string contactInfoName, std::string synopsisName)
 {
-    //looping over the 100000 data points to create the n-ary tree
-    std::ifstream inputFile("../src/researchData.csv");
-    std::string line;
-
-    while (std::getline(inputFile, line))
-    {
-        std::stringstream ss(line);
-
-        //storing all the names of the items in the tree
-        std::string temp;
-        std::string collegeName;
-        std::string departmentName;
-        std::string topicName;
-        std::string levelName;
-        std::string nameName;
-        std::string contactInfoName;
-        std::string synopsisName;
-
-        std::getline(ss, temp, ',');
-        std::getline(ss, collegeName, ',');
-        std::getline(ss, departmentName, ',');
-        std::getline(ss, topicName, ',');
-        std::getline(ss, levelName, ',');
-        std::getline(ss, nameName, ',');
-        std::getline(ss, contactInfoName, ',');
-        std::getline(ss, synopsisName, ',');
-
         //calling search to see if the college exists and if it doesn't then it will be nullptr
         Node* college = searchLevel(head, collegeName);
         //if college is nullptr then create a new node and insert it as the head's children
@@ -99,8 +72,8 @@ void n_ary::insert()
             name->children.push_back(synopsis);
         }
         */
-    }
 }
+
 
 //searches through the children of the current node for the key (ex if you are looking for the department,
 //will search the children of the college for the department and return it if found, else will return nullptr
