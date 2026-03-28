@@ -4,7 +4,7 @@
 
 #include "Lab.h"
 
-
+// Lab object used mainly for the hastable.
 Lab::Lab(const std::string &college, const std::string &department, const std::string &topic, const std::string &level, const std::string &name,
     const std::string &contact_info, const std::string &synopsis): college(college),
                                                                    department(department),
@@ -56,6 +56,7 @@ uint64_t Lab::string_hash(std::string key) {
     return fnv1a(key);
 }
 
+// hashing function from the edugator lesson.
 uint64_t Lab::fnv1a(const std::string &key) {
     uint64_t hash = FNV_OFFSET_BASIS;
     for (char c : key) {

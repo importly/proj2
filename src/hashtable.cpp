@@ -4,6 +4,7 @@
 
 #include "hashtable.h"
 #include <vector>
+// hashtable insert, supports the Lab object and resizing when past load factor of 0.8
 bool hashtable::push_back(const std::string &key, const Lab &lab) {
     if (static_cast<double>(num_keys)/static_cast<double>(table.size()) > 0.8) { // resizing and rehashing entire table
         // if more than 0.8 load factor.
@@ -35,6 +36,7 @@ bool hashtable::push_back(const std::string &key, const Lab &lab) {
     return true;
 }
 
+// hashtable seraching, simply uses the hashing of a key bounded withing the table size and gets the bucket with all labs inside
 std::vector<Lab> hashtable::search(const std::string &key) {
     const std::vector<std::vector<Lab>>& possible_labs_vec = table[Lab::string_hash(key)%table.size()];
     for (const std::vector<Lab>& group: possible_labs_vec) {

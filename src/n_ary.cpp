@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 
+// n_ary insert operation based on serach values and info.
 void n_ary::insert(std::string collegeName, std::string departmentName, std::string topicName, std::string levelName, std::string nameName, std::string contactInfoName, std::string synopsisName)
 {
         //calling search to see if the college exists and if it doesn't then it will be nullptr
