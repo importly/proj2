@@ -1,7 +1,8 @@
 #include "result.h"
 #include "display.h"
 #include <chrono>
-
+#include <fstream>
+#include <sstream>
 void result::setText(sf::Text &text, float x, float y) {
     sf::FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top + textRect.height/2.0f);
@@ -15,11 +16,36 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     std::vector<std::vector<std::string>> naryResults;
 
     auto start = std::chrono::high_resolution_clock::now();
-
+//looping over the 100000 data points to create the n-ary tree
+    std::ifstream inputFile("../src/researchData.csv");
+    std::string line;
     n_ary tree;
-    tree.insert();
-    naryResults = tree.functionality(userInput);
 
+    while (std::getline(inputFile, line)) {
+        std::stringstream ss(line);
+
+        //storing all the names of the items in the tree
+        std::string temp;
+        std::string collegeName;
+        std::string departmentName;
+        std::string topicName;
+        std::string levelName;
+        std::string nameName;
+        std::string contactInfoName;
+        std::string synopsisName;
+
+        std::getline(ss, temp, ',');
+        std::getline(ss, collegeName, ',');
+        std::getline(ss, departmentName, ',');
+        std::getline(ss, topicName, ',');
+        std::getline(ss, levelName, ',');
+        std::getline(ss, nameName, ',');
+        std::getline(ss, contactInfoName, ',');
+        std::getline(ss, synopsisName, ',');
+        tree.insert(collegeName, departmentName, topicName, levelName, nameName, contactInfoName, synopsisName);
+    }
+
+    naryResults = tree.functionality(userInput);
     for (int i = 0; i < naryResults.size(); i++) {
         for (int j = 0; j < naryResults[i].size(); j++) {
             std::cout << naryResults[i][j] << std::endl;
