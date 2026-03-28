@@ -6,6 +6,7 @@
 #include "display.h"
 
 int main() {
+    generate();
     displayWindow window;
     window.screen();
 

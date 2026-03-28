@@ -41,7 +41,7 @@ void n_ary::insert()
         {
             college = new n_ary::Node();
             college->value = collegeName;
-            head->children.push_back(std::move(college));
+            head->children.push_back(college);
         }
 
         Node* department = searchLevel(college, departmentName);
@@ -49,7 +49,7 @@ void n_ary::insert()
         {
             department = new n_ary::Node();
             department->value = departmentName;
-            college->children.push_back(std::move(department));
+            college->children.push_back(department);
         }
 
         Node* topic = searchLevel(department, topicName);
@@ -57,7 +57,8 @@ void n_ary::insert()
         {
             topic = new n_ary::Node();
             topic->value = topicName;
-            department->children.push_back(std::move(topic));
+            department->children.push_back(topic);
+
         }
 
         Node* level = searchLevel(topic, levelName);
@@ -65,14 +66,14 @@ void n_ary::insert()
         {
             level = new n_ary::Node();
             level->value = levelName;
-            topic->children.push_back(std::move(level));
+            topic->children.push_back(level);
         }
 
         Node* info = new n_ary::Node();
         info->researchInfo.push_back(nameName);
         info->researchInfo.push_back(contactInfoName);
         info->researchInfo.push_back(synopsisName);
-        level->children.push_back(std::move(info));
+        level->children.push_back(info);
 
         /*
         Node* name = searchLevel(level, nameName);
@@ -130,7 +131,6 @@ std::vector<std::vector<std::string>> n_ary::functionality(std::vector<std::stri
             return {};
         }
     }
-
     for (int i = 0; i < temp->children.size(); i++) {
         for (int j = 0; j < temp->children[i]->researchInfo.size(); j++) {
             std::cout << temp->children[i]->researchInfo[j] << std::endl;
