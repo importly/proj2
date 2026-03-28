@@ -15,6 +15,6 @@
 -- Found OpenAL: /Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/OpenAL.framework  
 -- Found VORBIS: /Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/vorbisenc.framework;/Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/vorbisfile.framework;/Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/vorbis.framework;/Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/ogg.framework  
 -- Found FLAC: /Users/krinaparikh/proj2/cmake-build-debug/_deps/sfml-src/extlibs/libs-osx/Frameworks/FLAC.framework  
--- Configuring done (2.6s)
+-- Configuring done (13.8s)
 -- Generating done (0.0s)
 -- Build files have been written to: /Users/krinaparikh/proj2/cmake-build-debug

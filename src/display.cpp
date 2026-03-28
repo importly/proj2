@@ -347,34 +347,34 @@ void displayWindow::topicScreen()
     sf::RectangleShape button(sf::Vector2f(btnWidth, btnHeight));
 
     int index;
-    if (userValues[2] == "Computer Science") {
+    if (userValues[1] == "Computer Science") {
         index = 0;
     }
-    else if (userValues[2] == "Computer Engineering") {
+    else if (userValues[1] == "Computer Engineering") {
         index = 1;
     }
-    else if (userValues[2] == "Mechanical Engineering") {
+    else if (userValues[1] == "Mechanical Engineering") {
         index = 2;
     }
-    else if (userValues[2] == "Aerospace Engineering") {
+    else if (userValues[1] == "Aerospace Engineering") {
         index = 3;
     }
-    else if (userValues[2] == "Electrical Engineering") {
+    else if (userValues[1] == "Electrical Engineering") {
         index = 4;
     }
-    else if (userValues[2] == "Biomedical Engineering") {
+    else if (userValues[1] == "Biomedical Engineering") {
         index = 5;
     }
-    else if (userValues[2] == "Civil Engineering") {
+    else if (userValues[1] == "Civil Engineering") {
         index = 6;
     }
-    else if (userValues[2] == "Chemical Engineering") {
+    else if (userValues[1] == "Chemical Engineering") {
         index = 7;
     }
-    else if (userValues[2] == "Nuclear Engineering") {
+    else if (userValues[1] == "Nuclear Engineering") {
         index = 8;
     }
-    else {
+    else if (userValues[1] == "Physics"){
         index = 9;
     }
 
