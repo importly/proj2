@@ -102,6 +102,8 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         yStart += 50;
     }
 
+    resultWindow.setView(resultWindow.getDefaultView());
+
     while(resultWindow.isOpen()) {
 
         sf::Event event;
@@ -116,7 +118,7 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         }
 
         resultWindow.clear(sf::Color(76,124,138));
-        resultWindow.setView(resultWindow.getDefaultView());
+        resultWindow.setView(scrollView);
 
         for (int i = 0; i < naryOutput.size(); i++) {
             resultWindow.draw(naryOutput[i]);
@@ -128,9 +130,6 @@ void result::resultScreen(std::vector<std::string>& userInput) {
         resultWindow.draw(horizonLine);
         resultWindow.draw(nary);
         resultWindow.draw(hash);
-
-        resultWindow.setView(scrollView);
-
         resultWindow.display();
     }
 }
