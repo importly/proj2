@@ -73,8 +73,6 @@ void result::resultScreen(std::vector<std::string>& userInput) {
     horizonLine.setOrigin(0, 1.0f);
     horizonLine.setPosition(0, 250.0f);
 
-    std::cout << "hello";
-
     //got this to figure out mouse scrolling https://www.google.com/search?q=how+to+allow+your+window+to+scroll+in+sfml&sca_esv=9b7071d2b58e06a1&biw=1440&bih=778&sxsrf=ANbL-n73WtbOmzni1gRsa5Me95nXP66WdQ%3A1774652516594&ei=ZAzHaYeCJI2bptQP0M6q6Qo&ved=0ahUKEwiHxOfml8GTAxWNjYkEHVCnKq0Q4dUDCBE&uact=5&oq=how+to+allow+your+window+to+scroll+in+sfml&gs_lp=Egxnd3Mtd2l6LXNlcnAiKmhvdyB0byBhbGxvdyB5b3VyIHdpbmRvdyB0byBzY3JvbGwgaW4gc2ZtbDIFECEYoAEyBRAhGKABMgUQIRigATIFECEYnwVI92FQ6wVYwmBwDHgAkAEAmAG7AaAB6SqqAQUyMi4zMLgBA8gBAPgBAZgCPKACzCzCAgQQIxgnwgILEAAYgAQYkQIYigXCAgoQABiABBhDGIoFwgIFEAAYgATCAggQABiABBixA8ICBxAAGIAEGA3CAgYQABgWGB7CAggQABgWGAoYHsICCxAAGIAEGIYDGIoFwgIIEAAYgAQYogTCAggQABiiBBiJBcICBRAhGKsCwgIHECEYoAEYCsICBxAhGAoYqwKYAwDiAwUSATEgQIgGAZIHBTI3LjMzoAeGugOyBwUxOC4zM7gHoyzCBwcwLjIyLjM4yAfLAYAIAA&sclient=gws-wiz-serp
     sf::View scrollView = resultWindow.getDefaultView();
 
@@ -84,10 +82,16 @@ void result::resultScreen(std::vector<std::string>& userInput) {
 
         for (int j = 0; j < naryResults[i].size(); j++) {
 
-            std::cout << naryResults[i][j] << std::endl;
+            sf::Text test("", font, 22);
+            std::string temp = wrapText(test, naryResults[i][j], centerX - 20.0f);
 
-            sf::Text researchInfo(naryResults[i][j], font, 22);
+            sf::Text researchInfo(temp, font, 22);
             researchInfo.setFillColor(sf::Color::White);
+
+            if (j % 3 == 0) {
+                researchInfo.setStyle(sf::Text::Bold);
+            }
+
             researchInfo.setPosition(20.0f, yStart);
 
             naryOutput.emplace_back(researchInfo);
@@ -129,4 +133,26 @@ void result::resultScreen(std::vector<std::string>& userInput) {
 
         resultWindow.display();
     }
+}
+
+std::string result::wrapText(sf::Text& researchInfo, std::string outputText, float limit) {
+    std::string wrappedText = "";
+    std::string currentLine = "";
+    std::stringstream ss(outputText);
+    std::string word;
+
+    while (ss >> word) {
+        std::string testLine = currentLine + word + " ";
+        researchInfo.setString(testLine);
+
+        if (researchInfo.getLocalBounds().width > limit) {
+            wrappedText += currentLine + "\n";
+            currentLine = word + " ";
+        }
+        else {
+            currentLine = testLine;
+        }
+    }
+
+    return wrappedText + currentLine;
 }
